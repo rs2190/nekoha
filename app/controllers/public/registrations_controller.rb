@@ -59,4 +59,13 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  # サインアップ
+  def after_sign_up_path_for(resource)
+
+      notice("登録完了しました。ようこそ!　ここがあなたのマイページです。")
+      my_page_path
+
+  end
+
 end

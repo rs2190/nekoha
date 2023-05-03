@@ -7,6 +7,18 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     # アバウトページ
     get 'about' => 'homes#about', as: 'about'
+
+    # マイページ
+    get 'users/my_page' => 'users#show', as: 'my_page'
+    # プロフィール編集画面
+    get 'users/information/edit'=> 'users#edit', as: 'edit_information_users'
+    # プロフィール更新
+    patch 'customers/information' => 'users#update', as: 'update_information_users'
+    # 退会確認画面
+    get 'customers/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+    # 退会処理
+    patch 'customers/goodbye' => 'users#goodbye', as: 'goodbye'
+
   end
 
   # URL /users/sign_in ...
