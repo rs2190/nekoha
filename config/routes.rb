@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     # プロフィール編集画面
     get 'users/information/edit'=> 'users#edit', as: 'edit_information_users'
     # プロフィール更新
-    patch 'customers/information' => 'users#update', as: 'update_information_users'
+    patch 'users/information' => 'users#update', as: 'update_information_users'
     # 退会確認画面
-    get 'customers/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+    get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     # 退会処理
     patch 'customers/goodbye' => 'users#goodbye', as: 'goodbye'
 

@@ -28,7 +28,7 @@ class Public::SessionsController < Devise::SessionsController
   # サインインの処理
   def after_sign_in_path_for(resource)
 
-    notice("ログイン完了しました。こんにちは！本日もよろしくお願いいたします。")
+    notice("ログイン完了しました。")
     root_path
 
   end

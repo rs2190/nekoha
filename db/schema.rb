@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2023_05_01_122135) do
     t.string "encrypted_password", null: false
     t.integer "sex", default: 0, null: false
     t.text "self_introduction", default: "よろしくお願いいたします。", null: false
-    t.boolean "is_deleted", default: true, null: false
+    t.boolean "is_deleted", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

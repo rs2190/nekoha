@@ -1,0 +1,49 @@
+   <header>
+      <nav class="navbar navbar-expand-lg border border-bottom-dark">
+        <div class="container">
+          <nav class="nav navbar-nav navbar-left">
+            <!--ロゴ -->
+          </nav>
+          <nav>
+             <ul class="nav navbar-right">
+              <% if user_signed_in? && !current_user.is_deleted %>
+                 <li>
+                  ようこそ、<%= current_user.name %>さん
+                </li>
+                <li>
+                  <%= link_to about_path, class:"nav-link text-right" do %>
+                  About
+                <% end %>
+                </li>
+                <li>
+                  <%= link_to my_page_path, class:"nav-link text-right" do %>
+                    マイページ
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete,  class:"nav-link text-right" do %>
+                    ログアウト
+                  <% end %>
+                </li>
+              <% else %>
+              <li>
+                <%= link_to about_path, class:"nav-link text-right" do %>
+                  About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_registration_path, class:"nav-link text-right" do %>
+                  新規登録
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_user_session_path, class:"nav-link text-right" do %>
+                  ログイン
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+          </nav>
+        </diV>
+      </nav>
+    </header>

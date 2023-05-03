@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
 
      # 登録したモデル
     case resource
-
+    when :admin then
+      root_path
     # Users(ユーザー)
     when :user then
       root_path
@@ -15,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-    protected
+  protected
 
   # deviseのストロングパラメータ。
   def configure_permitted_parameters
@@ -33,9 +34,9 @@ class ApplicationController < ActionController::Base
   end
 
   # フラッシュメッセージを定義(正常)
-  def notice(word)
+  def notice(messeage)
 
-    flash[:notice] = word
+    flash[:notice] = messeage
 
   end
 

@@ -63,8 +63,8 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # サインアップ
   def after_sign_up_path_for(resource)
 
-      notice("登録完了しました。ようこそ!　ここがあなたのマイページです。")
-      my_page_path
+    notice("登録完了しました。ようこそ!　ここがあなたのマイページです。")
+    my_page_path
 
   end
 
