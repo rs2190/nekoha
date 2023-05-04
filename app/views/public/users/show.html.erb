@@ -1,2 +1,24 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<h2>マイページ</h2>
+
+<div class = "field my-2">
+  <table class = "table table-bordered" >
+    <tbody>
+      <tr>
+        <th class="table-secondary">ユーザー名</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th class="table-secondary">性　　別</th>
+        <td><%= @user.sex %></td>
+      </tr>
+      <tr>
+        <th class="table-secondary">メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th class="table-secondary">自己紹介文</th>
+        <td><%= @user.self_introduction %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

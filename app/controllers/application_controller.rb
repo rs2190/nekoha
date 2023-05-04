@@ -33,6 +33,15 @@ class ApplicationController < ActionController::Base
 
   end
 
+  public
+
+  # userモデルを、ログインした顧客のid（current_customer）で取得する。
+  def user_find
+
+    User.find(current_user.id)
+
+  end
+
   # フラッシュメッセージを定義(正常)
   def notice(messeage)
 
