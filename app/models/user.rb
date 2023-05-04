@@ -9,9 +9,15 @@ class User < ApplicationRecord
 
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |user|
+
+      #　パスワードをランダム生成
       user.password = SecureRandom.urlsafe_base64
       user.password_confirmation = user.password
       user.name = 'ゲスト'
+      user.sex = 0
+      user.self_introduction = "ゲストログイン用です。"
+      user.is_deleted = false
+
     end
 
   end
