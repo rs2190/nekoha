@@ -33,6 +33,14 @@ class Public::SessionsController < Devise::SessionsController
 
   end
 
+  # ゲストユーザーのログイン
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    notice("ゲストユーザーとしてログインしました。")
+    redirect_to root_path
+  end
+
    # 退会しているかを判断するメソッド
   def customer_state
       ## 入力されたemailからアカウントを1件取得
@@ -48,7 +56,5 @@ class Public::SessionsController < Devise::SessionsController
     end
 
   end
-
-
 
 end
