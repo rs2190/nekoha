@@ -9,7 +9,7 @@
       </tr>
       <tr>
         <th class="table-secondary">性　　別</th>
-        <td><%= @user.sex %></td>
+        <td><%= User.sexes_i18n[@user.sex] %></td>
       </tr>
       <tr>
         <th class="table-secondary">メールアドレス</th>

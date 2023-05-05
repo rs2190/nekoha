@@ -18,5 +18,13 @@ module Nekoha
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Railsアプリケーション日本語対応（国際化【i18n】)
+    config.i18n.default_locale = :ja
+
+    # システム日付を日本時間に設定
+    config.time_zone = 'Tokyo'
+
+
   end
 end
