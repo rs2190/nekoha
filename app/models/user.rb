@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # ActiveStorage(imageカラム)を追加して、画像を投稿出来るようにする。
+  has_one_attached :image
+
   # 性別のenum
   enum sex: { another: 0, male: 1, famale: 2 }
 
