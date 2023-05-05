@@ -1,0 +1,49 @@
+# [Add] 2023/02/26 Railsアプリケーション日本語対応（国際化【i18n】)
+
+# 【実装方法】
+# ja: # 日本語の設定を行う
+#     enums: # enumの設定を行う
+#       [モデル名]:
+#         [カラム名]:
+#           [enumで番号と紐付けた要素]
+#           [enumで番号と紐付けた要素]:# 要素の数だけ追加する
+
+  ja:
+    enums:
+      # ユーザーモデル
+      user:
+        # 性別
+        sex:
+          another: "その他"
+          male: "男"
+          famale: "女"
+
+    activerecord:
+      models:
+        user: "会員"
+        admin: "管理者"
+
+      attributes:
+        user:
+          current_password: "現在のパスワード"
+          email: "メールアドレス"
+          last_name: "名前(姓)"
+          first_name: "名前(名)"
+          last_name_kana: "フリガナ (セイ)"
+          first_name_kana: "フリガナ (メイ)"
+          postal_code: "郵便番号 (ハイフンなし)"
+          address: "住所"
+          telephone_number: "電話番号 (ハイフンなし)"
+          password: "パスワード (6文字以上) "
+          password_confirmation: "パスワード (確認用) "
+          encrypted_password: "暗号化パスワード"
+        admin:
+          email: "メールアドレス"
+          password: "パスワード"
+
+    # バリデーションエラー
+    errors:
+      format: "%{attribute}%{message}"
+      messages:
+        blank: "を入力してください"
+        confirmation: "と%{attribute}の入力が一致しません"

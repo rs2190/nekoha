@@ -1,10 +1,10 @@
 class Public::UsersController < ApplicationController
 
-  before_action :authenticate_user!, only: [:edit ,:goodbye]
+  before_action :authenticate_user!, only: [:edit ,:update, :unsubscribe, :goodbye]
 
   # マイページ
   def show
-
+    # Userモデルを呼ぶ。
     @user = user_find
 
   end

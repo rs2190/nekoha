@@ -29,13 +29,18 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
 
     notice("ログイン完了しました。")
+
+    #ログイン後の遷移先
     root_path
 
   end
 
   # ゲストユーザーのログイン
   def guest_sign_in
+
+    #userモデルのguestメソッドを呼ぶ
     user = User.guest
+    # ゲストユーザーをログインさせる
     sign_in user
     notice("ゲストユーザーとしてログインしました。")
     redirect_to root_path

@@ -1,25 +1,26 @@
-<h2>Log in</h2>
+<h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <strong>
+    <%= f.label :email,"メールアドレス" %></br>
+    </strong>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <strong>
+      <%= f.label :password, "パスワード" %>
+      <% if @minimum_password_length %>
+        (<%= @minimum_password_length %>文字以上)
+      <% end %>
+    </strong></br>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
+  </br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン", class: "btn btn-primary"  %></br></br>
+    <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post, class: "login btn btn-primary" %>
   </div>
 <% end %>
 

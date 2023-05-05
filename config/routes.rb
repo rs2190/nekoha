@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   }
 
+  # 管理者用
+  get 'admin' => 'admin/homes#top', as: 'admin_home_top'
 
   # 管理者用
   # URL /admin/sign_in ...

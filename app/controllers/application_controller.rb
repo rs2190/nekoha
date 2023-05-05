@@ -43,9 +43,16 @@ class ApplicationController < ActionController::Base
   end
 
   # フラッシュメッセージを定義(正常)
-  def notice(messeage)
+  def notice(msg)
 
-    flash[:notice] = messeage
+    flash[:notice] = msg
+
+  end
+
+    # フラッシュメッセージを定義(異常)
+  def notice(msg)
+
+    flash[:alert] = msg
 
   end
 

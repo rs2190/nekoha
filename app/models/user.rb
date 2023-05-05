@@ -7,8 +7,9 @@ class User < ApplicationRecord
   # 性別のenum
   enum sex: { another: 0, male: 1, famale: 2 }
 
+  # ゲストログイン時のデータを作成
   def self.guest
-    find_or_create_by!(email: 'aaa@aaa.com') do |user|
+    find_or_create_by!(email: 'guest@nekoha.com') do |user|
 
       #　パスワードをランダム生成
       user.password = SecureRandom.urlsafe_base64
