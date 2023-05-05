@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
   end
 
     # フラッシュメッセージを定義(異常)
-  def notice(msg)
+  def alert(msg)
 
     flash[:alert] = msg
 
