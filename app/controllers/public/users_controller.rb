@@ -9,7 +9,11 @@ class Public::UsersController < ApplicationController
 
   end
 
+  # プロフィール編集
   def edit
+
+    @user = user_find
+
   end
 
   def update

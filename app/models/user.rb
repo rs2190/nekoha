@@ -26,4 +26,20 @@ class User < ApplicationRecord
 
   end
 
+  # プロフィール画像を取得する。
+  def get_profile_image(size)
+
+    # 画像を取得出来るか
+    upload_default_image unless image.attached?
+    # 画像サイズの変更(px)
+    image.variant(resize: size)
+  end
+
+  # プロフィール画像が存在しない場合、画像が取得する。
+  def upload_default_image
+    # 画像を取得して、
+    file_path = Rails.root.join('app/assets/images/no_image.jpg')
+    image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+  end
+
 end

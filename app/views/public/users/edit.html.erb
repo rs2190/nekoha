@@ -1,2 +1,34 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<div class = "row">
+  <%= render 'layouts/users_sidebar' %>
+  <div class = "offset-1">
+  <h4>プロフィール編集</h4>
+  <%= form_with model: @user, url: edit_information_users_path, method: :patch do |f| %>
+    <div class = "field my-2 offset-1">
+      <table class = "table table-borderless" >
+        <tbody>
+          <tr>
+            <th>プロフィール画像</th>
+            <td><%= f.file_field :image, accept: "image/*" %></td>
+          </tr>
+          <tr>
+            <th>ユーザー名</th>
+            <td><%= f.text_field :name, :placeholder => "ネコハ太郎", autofocus: true %></td>
+          </tr>
+          <tr>
+            <th>性　　別</th>
+            <td><%= f.select :sex, User.sexes_i18n.invert %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= f.email_field :email, :placeholder => "sample@example.com" %></td>
+          </tr>
+          <tr>
+            <th>自己紹介文</th>
+            <td><%= f.text_area :self_introduction, :placeholder => "よろしくお願いいたします。" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% end %>

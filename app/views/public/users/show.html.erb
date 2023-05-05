@@ -1,24 +1,39 @@
-<h2>マイページ</h2>
+<div class = "row">
+  <% if user_signed_in? && !current_user.is_deleted %>
+     <%= render 'layouts/users_sidebar' %>
+  <% end %>
+  <div class = "offset-1">
+    <h4>マイページ</h4>
+    <div class = "items_image offset-1">
+      <%= image_tag @user.get_profile_image(200) %>
+    </div>
+  </div>
 
-<div class = "field my-2">
-  <table class = "table table-bordered" >
-    <tbody>
-      <tr>
-        <th class="table-secondary">ユーザー名</th>
-        <td><%= @user.name %></td>
-      </tr>
-      <tr>
-        <th class="table-secondary">性　　別</th>
-        <td><%= User.sexes_i18n[@user.sex] %></td>
-      </tr>
-      <tr>
-        <th class="table-secondary">メールアドレス</th>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <th class="table-secondary">自己紹介文</th>
-        <td><%= @user.self_introduction %></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class = "field my-2 offset-1">
+    <table class = "table table-borderless" >
+      <tbody>
+        <tr>
+          <th>ユーザー名</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>性　　別</th>
+          <td><%= User.sexes_i18n[@user.sex] %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>自己紹介文</th>
+          <td><%= @user.self_introduction %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% if @user.id == current_user.id %>
+     <div>
+      <%= link_to "編集", edit_information_users_path, class:"btn btn-success btn-block" %>
+    </div>
+    <% end %>
+  </div>
 </div>
