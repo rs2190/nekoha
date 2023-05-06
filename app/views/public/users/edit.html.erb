@@ -1,8 +1,8 @@
 <div class = "row">
   <%= render 'layouts/users_sidebar' %>
-  <div class = "offset-1">
+  <div class = "offset-1 col-7">
   <h4>プロフィール編集</h4>
-  <%= form_with model: @user, url: edit_information_users_path, method: :patch do |f| %>
+  <%= form_with model: @user, url: update_information_users_path, method: :patch do |f| %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>
@@ -24,8 +24,17 @@
           </tr>
           <tr>
             <th>自己紹介文</th>
-            <td><%= f.text_area :self_introduction, :placeholder => "よろしくお願いいたします。" %></td>
+            <td><%= f.text_area :self_introduction, :placeholder => "よろしくお願いいたします。" , size: "50x10" %></td>
           </tr>
+          <tr>
+            <th></th>
+            <td>
+              <div class="d-flex justify-content-lg-between">
+                <%= f.submit '更新', class:"btn btn-success" %>
+                <%= link_to "退会", unsubscribe_path, class: "btn btn-danger" %>
+              </div>
+            </td>
+        </tr>
         </tbody>
       </table>
     </div>
