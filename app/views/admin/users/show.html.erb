@@ -1,0 +1,39 @@
+
+<div class = "row">
+  <div class = "offset-1">
+    <h4>ユーザー詳細</h4>
+    <div class = "items_image offset-1">
+      <%= image_tag @user.get_profile_image(200) %>
+    </div>
+  </div>
+
+  <div class = "field my-2 offset-1">
+    <table class = "table table-borderless" >
+      <tbody>
+        <tr>
+          <th>ユーザー名</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>性　　別</th>
+          <td><%= User.sexes_i18n[@user.sex] %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>自己紹介文</th>
+          <td><%= @user.self_introduction %></td>
+        </tr>
+      </tbody>
+    </table>
+     <div class="d-flex justify-content-lg-between">
+       <%= form_with model: @user, url: admin_users_welcome_path,  method: :patch do |f| %>
+         <%= f.hidden_field :id, :value => @user.id %>
+         <%= link_to "有効", admin_users_welcome_path, class:"btn btn-success" %>
+      <% end %>
+      <%= link_to "退会", admin_users_goodbye_path(@user.id), class:"btn btn-danger" %>
+    </div>
+  </div>
+</div>

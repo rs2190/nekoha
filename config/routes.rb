@@ -34,13 +34,23 @@ Rails.application.routes.draw do
 
   }
 
-  # 管理者用
-  get 'admin' => 'admin/homes#top', as: 'admin_home_top'
-
-  # 管理者用
+    # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
+
+  # 管理者用
+  get 'admin' => 'admin/homes#top', as: 'admin_home_top'
+
+  namespace :admin do
+
+    # ユーザーステータス更新（有効）
+    patch 'users/welcome' => 'users#welcome', as: 'users_welcome'
+    # ユーザーステータス更新（退会）
+    patch 'users/goodbye' => 'users#goodbye', as: 'users_goodbye'
+    resources :users , only: [:index, :show]
+
+  end
 
 end

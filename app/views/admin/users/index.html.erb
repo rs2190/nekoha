@@ -1,0 +1,34 @@
+<div class = "d-flex justify-content-between">
+  <h4 class = "gray field m-3">ユーザー一覧</h4>
+</div>
+<div>
+  <table class = "table" >
+    <thead class = "table-info">
+      <tr>
+        <th>ID</th>
+        <th>ユーザー名</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |f| %>
+      <tr>
+        <td><%= f.id %></td>
+        <td>
+          <%= link_to admin_user_path(f.id) do %>
+            <%= f.name %>
+          <% end %>
+        </td>
+        <% if f.is_deleted %>
+          <td class = "text-secondary"><p class="font-weight-bold">退会</p></td>
+        <% else %>
+          <td class = "text-success"><p class="font-weight-bold">有効</p></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</diV>
+<div class = "d-flex justify-content-center">
+  <%= paginate @users %>
+</div>

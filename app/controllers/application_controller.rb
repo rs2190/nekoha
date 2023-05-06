@@ -35,10 +35,17 @@ class ApplicationController < ActionController::Base
 
   public
 
-  # userモデルを、ログインした顧客のid（current_customer）で取得する。
+  # userモデルを、ログインしたユーザーのid（current_user）を検索条件に取得する。
   def user_find
 
     User.find(current_user.id)
+
+  end
+
+  # userモデルを、リクエストパラメータで送られてきたユーザーidを検索条件に取得する。
+  def user_find_params_id
+
+    User.find(params[:id])
 
   end
 
