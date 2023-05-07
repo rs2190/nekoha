@@ -5,7 +5,7 @@
   <table class = "table" >
     <thead class = "table-info">
       <tr>
-        <th>ID</th>
+        <th>ユーザーID</th>
         <th>ユーザー名</th>
         <th>ステータス</th>
       </tr>
@@ -20,7 +20,7 @@
           <% end %>
         </td>
         <% if f.is_deleted %>
-          <td class = "text-secondary"><p class="font-weight-bold">退会</p></td>
+          <td class = "text-danger"><p class="font-weight-bold">退会</p></td>
         <% else %>
           <td class = "text-success"><p class="font-weight-bold">有効</p></td>
         <% end %>

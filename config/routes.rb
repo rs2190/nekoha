@@ -45,11 +45,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
-    # ユーザーステータス更新（有効）
-    patch 'users/welcome' => 'users#welcome', as: 'users_welcome'
-    # ユーザーステータス更新（退会）
-    patch 'users/goodbye' => 'users#goodbye', as: 'users_goodbye'
-    resources :users , only: [:index, :show]
+    resources :users , only: [:index, :show, :edit, :update]
 
   end
 

@@ -8,43 +8,45 @@ class Admin::UsersController < ApplicationController
 
   end
 
-
+  # ユーザー詳細
   def show
 
     @user = user_find_params_id
 
   end
 
-  # ユーザーステータス更新（有効）
-  def welcome
+  # ユーザー編集画面
+  def edit
 
-    update_user_is_deleted(false)
+    @user = user_find_params_id
 
   end
 
-  # ユーザーステータス更新（退会）
-  def goodbye
+  # ユーザー情報更新
+  def update
 
-    update_user_is_deleted(true)
+    @user = user_find_params_id
+
+    if @user.update(user_params)
+
+      notice("対象のユーザー情報を更新しました。")
+      redirect_to admin_user_path(@user.id)
+
+    else
+
+      render :edit
+
+    end
+
 
   end
 
   private
 
   # ストロングパラメータ
-  def order_params
+  def user_params
 
-    params.require(:user).permit(:id)
-
-  end
-
-
-  # 削除フラグを更新して、一覧画面へ遷移する。（status: true(退会) or false（有効））
-  def update_user_is_deleted(status)
-
-    user = User.find(params[:user][:id])
-    user.update(is_deleted: status)
-    redirect_to admin_users_path
+    params.require(:user).permit(:name,:sex,:email,:self_introduction,:is_deleted)
 
   end
 

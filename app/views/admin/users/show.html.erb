@@ -1,4 +1,3 @@
-
 <div class = "row">
   <div class = "offset-1">
     <h4>ユーザー詳細</h4>
@@ -10,6 +9,10 @@
   <div class = "field my-2 offset-1">
     <table class = "table table-borderless" >
       <tbody>
+        <tr>
+          <th>ユーザーID</th>
+          <td><%= @user.id %></td>
+        </tr>
         <tr>
           <th>ユーザー名</th>
           <td><%= @user.name %></td>
@@ -26,14 +29,18 @@
           <th>自己紹介文</th>
           <td><%= @user.self_introduction %></td>
         </tr>
+        <tr>
+          <th>ユーザー</th>
+          <% if @user.is_deleted %>
+            <td class = "text-danger"><p class="font-weight-bold">退会</p></td>
+          <% else %>
+            <td class = "text-success"><p class="font-weight-bold">有効</p></td>
+          <% end %>
+        </tr>
       </tbody>
     </table>
      <div class="d-flex justify-content-lg-between">
-       <%= form_with model: @user, url: admin_users_welcome_path,  method: :patch do |f| %>
-         <%= f.hidden_field :id, :value => @user.id %>
-         <%= link_to "有効", admin_users_welcome_path, class:"btn btn-success" %>
-      <% end %>
-      <%= link_to "退会", admin_users_goodbye_path(@user.id), class:"btn btn-danger" %>
+      <%= link_to "編集", edit_admin_user_path(@user.id), class:"btn btn-success btn-block" %>
     </div>
   </div>
 </div>

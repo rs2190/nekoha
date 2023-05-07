@@ -31,6 +31,11 @@
                     ユーザー一覧
                   <% end %>
                 </li>
+                <li>
+                <%= link_to destroy_admin_session_path, method: :delete,  class:"nav-link text-right" do %>
+                  ログアウト
+                <% end %>
+              </li>
               <% else %>
                 <li>
                   <%= link_to about_path, class:"nav-link text-right" do %>
