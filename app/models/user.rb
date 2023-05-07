@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # 1 : N　の関連付け（アソシエーション: association）
+  # posts と users の 1 : N のアソシエーション実装
+  has_many :posts, dependent: :destroy
   # ActiveStorage(imageカラム)を追加して、画像を投稿出来るようにする。
   has_one_attached :image
 

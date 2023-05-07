@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     # 退会処理
     patch 'customers/goodbye' => 'users#goodbye', as: 'goodbye'
 
+    resources :posts
+
   end
 
   # URL /users/sign_in ...

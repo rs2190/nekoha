@@ -1,0 +1,36 @@
+<div class = "row">
+  <%= render 'layouts/users_sidebar' %>
+  <div class = "offset-1 col-7">
+  <h4>投稿内容登録</h4>
+  <%= form_with model: @post, url: new_post_path, method: :post do |f| %>
+    <div class = "field my-2 offset-1">
+      <table class = "table table-borderless" >
+        <tbody>
+          <tr>
+            <th>投稿画像</th>
+            <td><%= f.file_field :image, accept: "image/*" %></td>
+          </tr>
+          <tr>
+            <th>タイトル名</br>（20文字以内）</th>
+            <td><%= f.text_field :title, :placeholder => "例.私の家の猫（20文字以内）", autofocus: true %></td>
+          </tr>
+          <tr>
+            <th>タグリスト</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>投稿コメント</th>
+            <td><%= f.text_area :self_introduction, :placeholder => "よろしくお願いいたします。" , size: "50x10" %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <%= f.submit '投稿する', class:"btn btn-success btn-block" %>
+            </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% end %>
