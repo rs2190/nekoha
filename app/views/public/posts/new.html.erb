@@ -2,7 +2,7 @@
   <%= render 'layouts/users_sidebar' %>
   <div class = "offset-1 col-7">
   <h4>投稿内容登録</h4>
-  <%= form_with model: @post, url: new_post_path, method: :post do |f| %>
+  <%= form_with model: @post, url: posts_path, method: :post do |f| %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>
@@ -12,7 +12,7 @@
           </tr>
           <tr>
             <th>タイトル名</br>（20文字以内）</th>
-            <td><%= f.text_field :title, :placeholder => "例.私の家の猫（20文字以内）", autofocus: true %></td>
+            <td><%= f.text_field :title, :placeholder => "例.私の家の猫（20文字以内）", autofocus: true, :size=>"48" %></td>
           </tr>
           <tr>
             <th>タグリスト</th>
@@ -20,7 +20,7 @@
           </tr>
           <tr>
             <th>投稿コメント</th>
-            <td><%= f.text_area :self_introduction, :placeholder => "よろしくお願いいたします。" , size: "50x10" %></td>
+            <td><%= f.text_area :posts_comment, :placeholder => "例.名前はミケです。オスの3歳です。" , size: "50x10" %></td>
           </tr>
           <tr>
             <th></th>
