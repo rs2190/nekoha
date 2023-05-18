@@ -1,8 +1,9 @@
 class Public::PostsController < ApplicationController
 
+  # 投稿内容一覧（全て）
   def index
 
-    @posts = Post.where(user_id: current_user.id).page(params[:page]).per(10).order(id: "ASC")
+    @posts = Post.page(params[:page]).per(30).order(id: "ASC")
 
   end
 
@@ -34,16 +35,46 @@ class Public::PostsController < ApplicationController
 
   end
 
+  # 投稿内容詳細画面
+  def show
+
+    @post = post_find_params_id
+
+  end
+
+  # 投稿内容編集画面
   def edit
 
-     @posts = Post.find(user_id: current_user.id)
+    @post = post_find_params_id
 
   end
 
+  # 投稿内容更新
   def update
+
+    @post = post_find_params_id
+
+    if @post.update(post_params)
+
+      notice("投稿内容を更新しました。")
+      redirect_to post_path(@post.id)
+
+    else
+
+      render :edit
+
+    end
+
   end
 
+  # 投稿内容削除
   def destroy
+
+    @post = post_find_params_id
+    @post.destroy
+    notice("投稿内容を削除しました。")
+    redirect_to posts_path
+
   end
 
   private

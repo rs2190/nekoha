@@ -1,2 +1,39 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<div class = "row">
+  <% if user_signed_in? && !current_user.is_deleted %>
+     <%= render 'layouts/users_sidebar' %>
+  <% end %>
+  <div class = "d-flex justify-content-between">
+    <h4 class = "gray field m-3">ユーザー一覧</h4>
+  </div>
+  <div>
+    <table class = "table" >
+      <thead class = "table-info">
+        <tr>
+          <th>ユーザーID</th>
+          <th>ユーザー名</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |f| %>
+        <tr>
+          <td><%= f.id %></td>
+          <td>
+            <%= link_to user_path(f.id) do %>
+              <%= f.name %>
+            <% end %>
+          </td>
+          <% if f.is_deleted %>
+            <td class = "text-danger"><p class="font-weight-bold">退会</p></td>
+          <% else %>
+            <td class = "text-success"><p class="font-weight-bold">有効</p></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class = "d-flex justify-content-center">
+    <%= paginate @posts %>
+  </div>
+</div>

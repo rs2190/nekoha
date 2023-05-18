@@ -1,2 +1,39 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<div class = "row">
+  <%= render 'layouts/users_sidebar' %>
+  <div class = "offset-1 col-7">
+  <h4>投稿内容編集</h4>
+  <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
+    <div class = "field my-2 offset-1">
+      <table class = "table table-borderless" >
+        <tbody>
+          <tr>
+            <th>投稿画像</th>
+            <td><%= f.file_field :image, accept: "image/*" %></td>
+          </tr>
+          <tr>
+            <th>タイトル名</br>（20文字以内）</th>
+            <td><%= f.text_field :title, :placeholder => "例.私の家の猫（20文字以内）", autofocus: true, :size=>"48" %></td>
+          </tr>
+          <tr>
+            <th>タグリスト</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>投稿コメント</th>
+            <td><%= f.text_area :posts_comment, :placeholder => "例.名前はミケです。オスの3歳です。" , size: "50x10" %></td>
+          </tr>
+          <tr>
+            <th></th>
+            <td>
+              <div class="d-flex justify-content-lg-between">
+                <%= f.submit "変更", class:"btn btn-success" %>
+                <%= link_to "削除", post_path(@post.id), method: :delete , class: "btn btn-danger" %>
+              </div>
+            </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% end %>

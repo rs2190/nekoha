@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     # 退会確認画面
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     # 退会処理
-    patch 'customers/goodbye' => 'users#goodbye', as: 'goodbye'
+    patch 'users/goodbye' => 'users#goodbye', as: 'goodbye'
 
     resources :posts
 

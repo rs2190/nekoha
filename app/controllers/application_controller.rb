@@ -49,6 +49,13 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # postモデルを、リクエストパラメータで送られてきた投稿idを検索条件に取得する。
+  def post_find_params_id
+
+   Post.find(params[:id])
+
+  end
+
   # フラッシュメッセージを定義(正常)
   def notice(msg)
 
