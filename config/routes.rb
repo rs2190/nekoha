@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     # 退会処理
     patch 'users/goodbye' => 'users#goodbye', as: 'goodbye'
 
+    # 投稿内容一覧（ユーザー投稿全て）
+    get 'posts/user_index' => 'posts#user_index', as: 'user_index'
     resources :posts
 
   end

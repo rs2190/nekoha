@@ -3,9 +3,17 @@ class Public::PostsController < ApplicationController
   # 投稿内容一覧（全て）
   def index
 
-    @posts = Post.page(params[:page]).per(30).order(id: "ASC")
+    @posts = Post.page(params[:page]).per(30).order(id: "DESC")
 
   end
+
+  # 投稿内容一覧（全て）
+  def user_index
+
+    @posts = Post.where(user_id: current_user.id).page(params[:page]).per(10).order(id: "DESC")
+
+  end
+
 
   # 投稿内容登録画面
   def new
@@ -73,7 +81,7 @@ class Public::PostsController < ApplicationController
     @post = post_find_params_id
     @post.destroy
     notice("投稿内容を削除しました。")
-    redirect_to posts_path
+    redirect_to user_index_path
 
   end
 

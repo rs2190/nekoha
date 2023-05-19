@@ -2,35 +2,28 @@
   <% if user_signed_in? && !current_user.is_deleted %>
      <%= render 'layouts/users_sidebar' %>
   <% end %>
-  <div class = "d-flex justify-content-between">
-    <h4 class = "gray field m-3">投稿内容一覧</h4>
-  </div>
-  <div>
+    <h4 class = "gray field m-3"><%= current_user.name %> さんの投稿内容一覧</h4>
+    <div>
     <table class = "table" >
       <thead class = "table-info">
         <tr>
-          <th></th>
+          <th>投稿日時</th>
           <th>タイトル</th>
-          <th>タグ</th>
-          <th></th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <% @posts.each do |f| %>
         <tr>
-          <td><%= image_tag f.get_profile_image(100) %></td>
+          <td><%= f.get_posted_date %></td>
+          <td><%= f.title %></td>
           <td>
-            <%= link_to edit_post_path(f.id) do %>
-              <%= f.title %>
-            <% end %>
+            <%= link_to "変更", edit_post_path(f.id), method: :get , class: "btn btn-success" %>
           </td>
         </tr>
         <% end %>
       </tbody>
     </table>
-  </div>
-  <div class = "d-flex justify-content-center">
+    </div>
     <%= paginate @posts %>
-  </div>
 </div>
