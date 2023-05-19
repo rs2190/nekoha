@@ -5,10 +5,11 @@ class ApplicationController < ActionController::Base
   # サインアウト後の遷移
   def after_sign_out_path_for(resource)
 
-     # 登録したモデル
+    # 登録したモデル
     case resource
+    # Admins(管理者)
     when :admin then
-      root_path
+      new_admin_session_path
     # Users(ユーザー)
     when :user then
       root_path

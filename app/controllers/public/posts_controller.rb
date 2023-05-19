@@ -3,7 +3,7 @@ class Public::PostsController < ApplicationController
   # 投稿内容一覧（全て）
   def index
 
-    @posts = Post.page(params[:page]).per(30).order(id: "DESC")
+    @posts = Post.page(params[:page]).per(10).order(id: "DESC")
 
   end
 

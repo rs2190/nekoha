@@ -4,5 +4,8 @@ class Admin::HomesController < ApplicationController
 
   # トップページ
   def top
+
+    @posts = Post.page(params[:page]).per(30).order(id: "DESC")
+
   end
 end
