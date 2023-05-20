@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'posts/show'
-    get 'posts/destroy'
-  end
   # 顧客用
   # moduleで、URLを変更せず、ファイル構成だけ指定のパスにする。
   scope module: :public do
@@ -25,7 +21,9 @@ Rails.application.routes.draw do
 
     # 投稿内容一覧（ユーザー投稿全て）
     get 'posts/user_index' => 'posts#user_index', as: 'user_index'
-    resources :posts
+    resources :posts do
+      resources :comments, only: [:new,:create,:edit,:update,:destroy]
+    end
 
   end
 

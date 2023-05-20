@@ -4,6 +4,11 @@ class Post < ApplicationRecord
   # posts と users の 1 : N のアソシエーション実装
   belongs_to :user
 
+   # favorites と posts の 1 : N のアソシエーション実装
+  has_many :favorites, dependent: :destroy
+  # comments と posts の 1 : N のアソシエーション実装
+  has_many :comments, dependent: :destroy
+
   # ActiveStorage(imageカラム)を追加して、画像を投稿出来るようにする。
   has_one_attached :image
   # acts_as_taggable_on(tagsカラム)を追加して、タグリストを登録出来るようにする。
