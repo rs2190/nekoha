@@ -7,7 +7,7 @@ class CreateComments < ActiveRecord::Migration[6.1]
       # 投稿ID
       t.integer :post_id,  null: false
       # コメント内容
-      t.string :comment,  null: false
+      t.string :comment_word,  null: false
 
       t.timestamps
     end
