@@ -63,3 +63,5 @@ gem 'devise'
 gem 'kaminari','~> 1.2.1'
 # enum_help インストール
 gem "enum_help"
+# acts-as-taggable-on (タグ機能) インストール
+gem 'acts-as-taggable-on', '~> 9.0'

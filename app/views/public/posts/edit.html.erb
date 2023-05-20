@@ -12,15 +12,15 @@
           </tr>
           <tr>
             <th>タイトル名</br>（20文字以内）</th>
-            <td><%= f.text_field :title, :placeholder => "例.私の家の猫（20文字以内）", autofocus: true, :size=>"48" %></td>
+            <td><%= f.text_field :title, :placeholder => "私の家の猫", autofocus: true, class: 'form-control' %></td>
           </tr>
           <tr>
             <th>タグリスト</th>
-            <td></td>
+            <td><%= f.text_field :tag_list, :placeholder => "ペット,三毛猫" , value: @post.tag_list.join(','), class: 'form-control' %></td>
           </tr>
           <tr>
             <th>投稿コメント</th>
-            <td><%= f.text_area :posts_comment, :placeholder => "例.名前はミケです。オスの3歳です。" , size: "50x10" %></td>
+            <td><%= f.text_area :posts_comment, :placeholder => "名前はミケです。オスの3歳です。" , size: "50x10", class: 'form-control' %></td>
           </tr>
           <tr>
             <th></th>

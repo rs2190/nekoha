@@ -21,6 +21,9 @@
           <td><%= @post.get_posted_date %></td>
         </tr>
         <tr>
+          <td><%= render 'layouts/tag_list', tag_list: @post.tag_list %></td>
+        </tr>
+        <tr>
           <th>投稿コメント</th>
           <td><%= @post.posts_comment %></td>
         </tr>

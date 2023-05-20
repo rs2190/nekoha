@@ -16,7 +16,11 @@
         <% @posts.each do |f| %>
         <tr>
           <td><%= f.get_posted_date %></td>
-          <td><%= f.title %></td>
+          <td>
+            <%= link_to post_path(f.id) do %>
+              <%= f.title %>
+            <% end %>
+          </td>
           <td>
             <%= link_to "変更", edit_post_path(f.id), method: :get , class: "btn btn-success" %>
           </td>

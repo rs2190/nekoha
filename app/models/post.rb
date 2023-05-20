@@ -3,8 +3,11 @@ class Post < ApplicationRecord
   # 1 : N　の関連付け（アソシエーション: association）
   # posts と users の 1 : N のアソシエーション実装
   belongs_to :user
+
   # ActiveStorage(imageカラム)を追加して、画像を投稿出来るようにする。
   has_one_attached :image
+  # acts_as_taggable_on(tagsカラム)を追加して、タグリストを登録出来るようにする。
+  acts_as_taggable_on :tags
 
   # バリデーション
   with_options presence: true do

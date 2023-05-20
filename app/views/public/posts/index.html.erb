@@ -21,7 +21,7 @@
         <tr>
           <td><%= image_tag f.get_profile_image(100) %></td>
           <td>
-            <%= link_to edit_post_path(f.id) do %>
+            <%= link_to post_path(f.id) do %>
               <%= f.title %>
             <% end %>
           </td>
