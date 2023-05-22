@@ -19,10 +19,14 @@ class Public::CommentsController < ApplicationController
 
   end
 
-  def update
+  # コメント編集処理
+  def edit
+
+    @comment = comment.find(params[:id])
+
   end
 
-  def edit
+  def update
   end
 
   def destroy
