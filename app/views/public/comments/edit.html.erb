@@ -2,7 +2,7 @@
   <%= render 'layouts/users_sidebar' %>
   <div class = "offset-1 col-7">
   <h4>コメント編集</h4>
-  <%= form_with model: @comment, url: post_path(@post.id), method: :patch do |f| %>
+  <%= form_with model: @comment, url: post_comment_path(@comment.id), method: :patch do |f| %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>
@@ -18,7 +18,7 @@
           </tr>
           <tr>
             <td>
-              <div class="d-flex justify-content-lg-between">
+              <div class="d-flex justify-content-end">
                 <%= f.submit "変更", class:"btn btn-success" %>
               </div>
             </td>

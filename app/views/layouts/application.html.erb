@@ -16,8 +16,10 @@
     </div>
     <main>
       <div class="container" style="margin-top: 20px;">
-        <p class ="notice text-success"><%= flash[:notice] %></p>
-      <%= yield %>
+        <div class = "d-flex justify-content-around">
+          <p class ="notice text-success"><%= flash[:notice] %></p>
+        </div>
+        <%= yield %>
       </div>
     </main>
     <div id="footer">

@@ -19,17 +19,40 @@ class Public::CommentsController < ApplicationController
 
   end
 
-  # コメント編集処理
+  # コメント編集画面
   def edit
 
-    @comment = comment.find(params[:id])
+    @comment = comment_find_params_id
 
   end
 
+  # コメント更新処理
   def update
+
+    @comment = comment_find_params_id
+
+    if @comment.update(comment_params)
+
+      notice("コメントを更新しました。")
+      redirect_to post_path(@comment.post_id)
+
+    else
+
+      render :edit
+
+    end
+
   end
 
+  # コメント削除処理
   def destroy
+
+    @comment = comment_find_params_id
+    post_id = @comment.post_id
+    @comment.destroy
+    notice("コメントを削除しました。")
+    redirect_to post_path(post_id)
+
   end
 
   # ストロングパラメータ
