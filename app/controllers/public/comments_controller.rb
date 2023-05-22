@@ -3,19 +3,19 @@ class Public::CommentsController < ApplicationController
   # コメント登録処理
   def create
 
-    # 投稿モデル取得
-    @post = Post.find(params[:post_id])
+    # # 投稿モデル取得
+    # @post = Post.find(params[:post_id])
     # データを受け取り新規登録するためのインスタンス作成
     comment = current_user.comments.new(comment_params)
     # コメント.ユーザーID = ログインしているユーザーID
     comment.user_id = current_user.id
     # コメント.投稿ID = 取得した投稿.id
-    comment.post_id = @post.id
+    comment.post_id = params[:post_id]
     # コメント登録
     comment.save
 
     # 遷移先
-    redirect_to post_path(@post)
+    redirect_to post_path(params[:post_id])
 
   end
 

@@ -51,7 +51,7 @@
         <tr>
           <%= form_with model: [@post, @comment] do |f| %>
           <th>
-            <%= f.text_field :comment_word, placeholder: "コメント入力欄", class: 'form-control' %>
+            <%= f.text_field :comment_word, placeholder: "コメント入力欄", class: 'form-control', size: "50" %>
           </th>
           <td>
             <%= f.submit "コメント", class:"btn btn-primary"  %>
@@ -59,6 +59,29 @@
           <% end %>
         </tr>
         <% end %>
+        <tr>
+          <td>
+            <% if user_signed_in? && !current_user.is_deleted %>
+              <% if @post.favorited?(current_user) %>
+                <p>
+                  <%= link_to post_favorite_path(@post), method: :delete do %>
+                    ♥<%= @post.favorites.count %> いいね
+                  <% end %>
+                </p>
+                <% else %>
+                <p>
+                  <%= link_to post_favorites_path(@post), method: :post do %>
+                    ♡<%= @post.favorites.count %> いいね
+                  <% end %>
+                </p>
+              <% end %>
+            <% else %>
+             <p>
+              ♥<%= @post.favorites.count %> いいね
+              </p>
+            <% end %>
+          </td>
+        </tr>
       </tbody>
     </table>
     <% if @post.user.id == current_user.id %>
