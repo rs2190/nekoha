@@ -21,6 +21,30 @@
           <th>投稿コメント</th>
           <td><%= @post.posts_comment %></td>
         </tr>
+        <tr>
+          <td><%= render 'layouts/tag_list', tag_list: @post.tag_list %></td>
+        </tr>
+        <tr>
+          <th>コメント ： <%= @post.comments.count %> 件</th>
+        </tr>
+        <tr>
+          <td>
+            <% @post.comments.each do |comment| %>
+            <div>
+                  <p><%= image_tag comment.user.get_profile_image(10) %> <%= comment.user.name %></p>
+                  <%= comment.get_comment_date %></br>
+                  <%= comment.comment_word %>
+            </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+             <p>
+              ♥<%= @post.favorites.count %> いいね
+              </p>
+          </td>
+        </tr>
       </tbody>
     </table>
     <div class="d-flex justify-content-lg-between">

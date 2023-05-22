@@ -51,4 +51,11 @@ class User < ApplicationRecord
     image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
 
+  # 名前取得
+  def get_name(user_id)
+
+    User.where(id: user_id).pluck(:name)
+
+  end
+
 end

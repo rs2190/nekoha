@@ -1,0 +1,40 @@
+<div class = "d-flex justify-content-between">
+  <h4 class = "field m-3">コメント一覧</h4>
+</div>
+<div>
+  <table class = "table" >
+    <thead class = "table-primary">
+      <tr>
+        <th>ID</th>
+        <th>投稿日時</th>
+        <th>タイトル</th>
+        <th>投稿者</th>
+        <th>コメント内容</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @comments.each do |f| %>
+      <tr>
+        <td><%= f.id %></td>
+        <td><%= f.get_comment_date %></td>
+        <td>
+          <%= link_to admin_post_path(f.post_id) do %>
+            <%= f.get_post_title(f.post_id) %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to admin_user_path(f.user_id) do %>
+            <%= f.get_user_name(f.post_id) %>
+          <% end %>
+        </td>
+        <td><%= f.comment_word %></td>
+        <td><%= link_to "削除", admin_comment_path(f.id), method: :delete, class:"btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？"  %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</diV>
+<div class = "d-flex justify-content-center">
+  <%= paginate @comments %>
+</div>

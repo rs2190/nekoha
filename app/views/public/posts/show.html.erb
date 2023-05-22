@@ -30,8 +30,8 @@
         <tr>
           <th>コメント ： <%= @post.comments.count %> 件</th>
         </tr>
+        <% @post.comments.each do |comment| %>
         <tr>
-          <% @post.comments.each do |comment| %>
           <td>
             <div>
                   <p><%= image_tag comment.user.get_profile_image(10) %> <%= comment.user.name %></p>
