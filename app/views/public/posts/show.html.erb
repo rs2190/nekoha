@@ -28,13 +28,42 @@
           <td><%= @post.posts_comment %></td>
         </tr>
         <tr>
-          <th>コメント</th>
+          <th>コメント ： <%= @post.comments.count %> 件</th>
         </tr>
+        <tr>
+          <% @post.comments.each do |comment| %>
+          <td>
+            <div>
+                  <p><%= image_tag comment.user.get_profile_image(10) %> <%= comment.user.name %></p>
+                  <%= comment.get_comment_date %></br>
+                  <%= comment.comment_word %>
+            </div>
+          </td>
+          <td>
+            <% if comment.user.id == current_user.id %>
+              <%= link_to "編集", edit_post_comment_path(@post,comment), class:"btn btn-success" %>
+              <%= link_to "削除", post_comment_path(@post,comment), method: :delete, class:"btn btn-danger" %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+        <% if user_signed_in? && !current_user.is_deleted %>
+        <tr>
+          <%= form_with model: [@post, @comment] do |f| %>
+          <th>
+            <%= f.text_field :comment_word, placeholder: "コメント入力欄", class: 'form-control' %>
+          </th>
+          <td>
+            <%= f.submit "コメント", class:"btn btn-success btn-block"  %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
       </tbody>
     </table>
     <% if @post.user.id == current_user.id %>
     <div class="d-flex justify-content-lg-between">
-        <%= link_to '編集', edit_post_path(@post.id), class:"btn btn-success btn-block" %>
+        <%= link_to "編集", edit_post_path(@post.id), class:"btn btn-success btn-block" %>
     </div>
     <% end %>
   </div>

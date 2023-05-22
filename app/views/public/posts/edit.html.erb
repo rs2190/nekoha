@@ -27,7 +27,7 @@
             <td>
               <div class="d-flex justify-content-lg-between">
                 <%= f.submit "変更", class:"btn btn-success" %>
-                <%= link_to "削除", post_path(@post.id), method: :delete , class: "btn btn-danger" %>
+                <%= link_to "削除", post_path(@post.id), method: :delete , class: "btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？" %>
               </div>
             </td>
         </tr>

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     # 投稿内容一覧（ユーザー投稿全て）
     get 'posts/user_index' => 'posts#user_index', as: 'user_index'
     resources :posts do
-      resources :comments, only: [:new,:create,:edit,:update,:destroy]
+      resources :comments, only: [:create,:edit,:update,:destroy]
     end
 
   end
