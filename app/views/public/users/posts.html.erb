@@ -2,8 +2,8 @@
   <% if user_signed_in? && !current_user.is_deleted %>
      <%= render 'layouts/users_sidebar' %>
   <% end %>
-    <h4 class = "gray field m-3"><%= current_user.name %> さんの投稿内容一覧</h4>
-    <div>
+  <div class = "field ml-5">
+    <h4 class = "field m-3"><%= @user_name %> さんの投稿内容一覧</h4>
     <table class = "table" >
       <thead class = "table-info">
         <tr>
@@ -22,12 +22,14 @@
             <% end %>
           </td>
           <td>
-            <%= link_to "変更", edit_post_path(f.id), method: :get , class: "btn btn-success" %>
+            <% if f.user_id == current_user.id %>
+              <%= link_to "変更", edit_post_path(f.id), method: :get , class: "btn btn-success" %>
+            <% end %>
           </td>
         </tr>
         <% end %>
       </tbody>
     </table>
-    </div>
     <%= paginate @posts %>
+  </div>
 </div>

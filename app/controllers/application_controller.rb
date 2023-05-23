@@ -71,10 +71,17 @@ class ApplicationController < ActionController::Base
 
   end
 
-    # フラッシュメッセージを定義(異常)
+  # フラッシュメッセージを定義(異常)
   def alert(msg)
 
     flash[:alert] = msg
+
+  end
+
+  # 名前取得
+  def get_name(user_id)
+
+    User.where(id: user_id).pluck(:name)[0]
 
   end
 

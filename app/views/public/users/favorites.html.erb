@@ -1,0 +1,33 @@
+<div class = "row">
+  <% if user_signed_in? && !current_user.is_deleted %>
+     <%= render 'layouts/users_sidebar' %>
+  <% end %>
+  <div class = "field ml-5">
+    <h4 class = "field m-3"><%= @user_name %> さんのいいね一覧</h4>
+    <table class = "table" >
+      <thead class = "table-info">
+        <tr>
+          <th>タイトル</th>
+          <th>投稿者</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @favorite.each do |f| %>
+        <tr>
+          <td>
+            <%= link_to post_path(f.post_id) do %>
+              <%= f.get_post_title(f.post_id) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to user_path(f.user_id) do %>
+              <%= f.get_user_name(f.user_id) %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @favorite %>
+  </div>
+</div>

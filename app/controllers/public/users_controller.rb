@@ -1,9 +1,16 @@
 class Public::UsersController < ApplicationController
 
-  before_action :authenticate_user!, only: [:edit ,:update, :unsubscribe, :goodbye]
+  before_action :authenticate_user!, only: [:edit ,:update, :unsubscribe, :goodbye ,:my_page]
 
   # マイページ
   def show
+    # Userモデルを呼ぶ。
+    @user = user_find
+
+  end
+
+  # マイページ
+  def my_page
     # Userモデルを呼ぶ。
     @user = user_find
 
@@ -50,6 +57,34 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
 
   end
+
+  # 投稿内容一覧
+  def posts
+
+    userID = params[:user_id]
+    @posts = Post.where(user_id: userID).page(params[:page]).per(10).order(id: "DESC")
+    @user_name = get_name(userID)
+
+  end
+
+  # コメント一覧
+  def comments
+
+    userID = params[:user_id]
+    @comments = Comment.where(user_id: userID).page(params[:page]).per(10).order(id: "DESC")
+    @user_name = get_name(userID)
+
+  end
+
+  # いいね一覧
+  def favorites
+
+    userID = params[:user_id]
+    @favorite = Favorite.where(user_id: userID).page(params[:page]).per(10).order(id: "DESC")
+    @user_name = get_name(userID)
+
+  end
+
 
   private
 

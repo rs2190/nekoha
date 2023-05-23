@@ -7,14 +7,6 @@ class Public::PostsController < ApplicationController
 
   end
 
-  # 投稿内容一覧（全て）
-  def user_index
-
-    @posts = Post.where(user_id: current_user.id).page(params[:page]).per(10).order(id: "DESC")
-
-  end
-
-
   # 投稿内容登録画面
   def new
 

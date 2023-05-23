@@ -1,6 +1,9 @@
 <div class = "row">
+  <% if user_signed_in? && !current_user.is_deleted %>
+     <%= render 'layouts/users_sidebar' %>
+  <% end %>
   <div class = "offset-1">
-    <h4>ユーザー詳細</h4>
+    <h4>マイページ</h4>
     <div class = "items_image offset-1">
       <%= image_tag @user.get_profile_image(200) %>
     </div>
@@ -27,14 +30,10 @@
         </tr>
       </tbody>
     </table>
-    <div  class = "field my-2 offset-1">
-      <%= link_to "投稿した内容を見る", user_posts_path(@user.id), class:"btn btn-primary btn-block" %>
+    <% if @user.id == current_user.id %>
+     <div>
+      <%= link_to "編集", edit_information_users_path, class:"btn btn-success btn-block" %>
     </div>
-    <div class = "field my-2 offset-1">
-      <%= link_to "いいねを押した投稿", user_favorites_path(@user.id), class:"btn btn-primary btn-block" %>
-    </div>
-    <div  class = "field my-2 offset-1">
-      <%= link_to "コメントを押した投稿", user_comments_path(@user.id), class:"btn btn-primary btn-block" %>
-    </div>
+    <% end %>
   </div>
 </div>

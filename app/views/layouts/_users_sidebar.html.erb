@@ -8,14 +8,18 @@
       </tr>
       <tr>
         <td>
-          <%= link_to "投稿内容一覧", user_index_path %>
+          <%= link_to "投稿内容一覧", user_posts_path(current_user.id) %>
         </td>
       </tr>
       <tr>
-        <td>いいね一覧</td>
+        <td>
+          <%= link_to "いいね一覧", user_favorites_path(current_user.id) %>
+        </td>
       </tr>
       <tr>
-        <td>コメント一覧</td>
+        <td>
+          <%= link_to "コメント一覧", user_comments_path(current_user.id) %>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,44 @@
+<div class = "row">
+  <% if user_signed_in? && !current_user.is_deleted %>
+     <%= render 'layouts/users_sidebar' %>
+  <% end %>
+  <div class = "field ml-5">
+    <h4 class = "field m-3"><%= @user_name %> さんのコメント一覧</h4>
+    <table class = "table" >
+      <thead class = "table-info">
+        <tr>
+          <th>タイトル</th>
+          <th>投稿者</th>
+          <th>コメント</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @comments.each do |f| %>
+        <tr>
+          <td>
+            <%= link_to post_path(f.post_id) do %>
+              <%= f.get_post_title(f.post_id) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to user_path(f.user_id) do %>
+              <%= f.get_user_name(f.user_id) %>
+            <% end %>
+          </td>
+          <td>
+            <%= f.comment_word %>
+          </td>
+          <td>
+            <% if f.user_id == current_user.id %>
+              <%= link_to "編集", edit_post_comment_path(f.post_id,f.id), class:"btn btn-success" %>
+              <%= link_to "削除", post_comment_path(f.post_id,f.id), method: :delete, class:"btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？"  %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @comments %>
+  </div>
+</div>

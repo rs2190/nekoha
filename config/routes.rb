@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about', as: 'about'
 
     # マイページ
-    get 'users/my_page' => 'users#show', as: 'my_page'
+    get 'users/my_page' => 'users#my_page', as: 'my_page'
     # プロフィール編集画面
     get 'users/information/edit'=> 'users#edit', as: 'edit_information_users'
     # プロフィール更新
@@ -22,6 +22,12 @@ Rails.application.routes.draw do
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     # 退会処理
     patch 'users/goodbye' => 'users#goodbye', as: 'goodbye'
+
+    resources :users, only: [:show] do
+      get 'posts'
+      get 'comments'
+      get 'favorites'
+    end
 
     # 投稿内容一覧（ユーザー投稿全て）
     get 'posts/user_index' => 'posts#user_index', as: 'user_index'
