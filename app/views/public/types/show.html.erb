@@ -1,2 +1,26 @@
-<h1>Public::Types#show</h1>
-<p>Find me in app/views/public/types/show.html.erb</p>
+<div class = "row">
+  <div class = "offset-1">
+    <h4><%= @type.name %></h4>
+    <div class = "items_image offset-1">
+      <%= image_tag @type.get_profile_image(200) %>
+    </div>
+  </div>
+  <div class = "field my-2 offset-1">
+    <table class = "table table-borderless" >
+      <tbody>
+        <tr>
+          <th>体　　長</th>
+          <td><%= @type.body_length %></td>
+        </tr>
+        <tr>
+          <th>出　　身</th>
+          <td><%= @type.from %></td>
+        </tr>
+        <tr>
+          <th>詳　　細</th>
+          <td><%= @type.detail %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

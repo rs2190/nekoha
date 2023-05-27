@@ -2,6 +2,19 @@ Rails.application.routes.draw do
 
   # 顧客用
   # moduleで、URLを変更せず、ファイル構成だけ指定のパスにする。
+  # URL /users/sign_in ...
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in',as: 'guest_sign_in'
+  end
+
+  devise_for :users,skip: [:passwords], controllers: {
+
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+
+  }
+
   scope module: :public do
     # トップページ　初期表示
     root to: 'homes#top'
@@ -35,19 +48,6 @@ Rails.application.routes.draw do
     resources :types, only: [:index, :show]
 
   end
-
-  # URL /users/sign_in ...
-
-  devise_scope :user do
-    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in',as: 'guest_sign_in'
-  end
-
-  devise_for :users,skip: [:passwords], controllers: {
-
-    registrations: "public/registrations",
-    sessions: 'public/sessions'
-
-  }
 
     # 管理者用
   # URL /admin/sign_in ...

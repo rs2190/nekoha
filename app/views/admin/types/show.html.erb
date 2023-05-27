@@ -24,7 +24,7 @@
     </table>
      <div class="d-flex justify-content-lg-between">
       <%= link_to "編集", edit_admin_type_path(@type.id), class:"btn btn-success" %>
-      <%= link_to "削除", edit_admin_type_path(@type.id), class:"btn btn-danger" %>
+      <%= link_to "削除", admin_type_path(@type.id), method: :delete, class:"btn btn-danger" %>
     </div>
   </div>
 </div>

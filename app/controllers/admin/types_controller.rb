@@ -26,6 +26,8 @@ class Admin::TypesController < ApplicationController
     # コメント登録
     type.save
 
+    notice("ねこずかんを追加しました。")
+
     # 遷移先
     redirect_to admin_type_path(type.id)
 
@@ -38,16 +40,39 @@ class Admin::TypesController < ApplicationController
 
   end
 
+  # 種類情報の更新処理
   def edit
 
-     @type = type_find_params_id
+    @type = type_find_params_id
 
   end
 
+  # 種類情報の更新処理
   def update
+
+    @type = type_find_params_id
+
+    if @type.update(type_params)
+
+      notice("ねこずかんを更新しました。")
+      redirect_to admin_type_path(@type.id)
+
+    else
+
+      render :edit
+
+    end
+
   end
 
+  # 種類情報の更新処理
   def destroy
+
+    type = type_find_params_id
+    type.destroy
+    notice("ねこずかんから１件削除しました。")
+    redirect_to admin_types_path
+
   end
 
   private

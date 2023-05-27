@@ -1,2 +1,32 @@
-<h1>Public::Types#index</h1>
-<p>Find me in app/views/public/types/index.html.erb</p>
+<div class = "d-flex justify-content-between">
+  <h4 class = "field m-3">ねこずかん</h4>
+</div>
+<div>
+  <table class = "table" >
+    <thead class = "table-info">
+      <tr>
+        <th></th>
+        <th>種類名</th>
+        <th>タグ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @types.each do |f| %>
+      <tr>
+        <td><%= image_tag f.get_profile_image(50) %></td>
+        <td>
+        <%= link_to type_path(f.id) do %>
+          <%= f.name %>
+        <% end %>
+        </td>
+        <td>
+          <%= render 'layouts/tag_list', tag_list: f.tag_list %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</diV>
+<div class = "d-flex justify-content-center">
+  <%= paginate @types %>
+</div>
