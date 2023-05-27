@@ -64,6 +64,13 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # type、リクエストパラメータで送られてきた種類idを検索条件に取得する。
+  def type_find_params_id
+
+    Type.find(params[:id])
+
+  end
+
   # フラッシュメッセージを定義(正常)
   def notice(msg)
 

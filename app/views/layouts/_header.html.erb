@@ -45,6 +45,11 @@
                 <%= link_to destroy_admin_session_path, method: :delete,  class:"nav-link text-right" do %>
                   ログアウト
                 <% end %>
+                <li>
+                  <%= link_to admin_types_path, class:"nav-link text-right" do %>
+                    ねこずかん
+                  <% end %>
+                </li>
               </li>
               <% else %>
                 <li>

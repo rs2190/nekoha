@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'comments/index'
-    get 'comments/destroy'
-  end
   # 顧客用
   # moduleで、URLを変更せず、ファイル構成だけ指定のパスにする。
   scope module: :public do
@@ -22,7 +18,7 @@ Rails.application.routes.draw do
     get 'users/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
     # 退会処理
     patch 'users/goodbye' => 'users#goodbye', as: 'goodbye'
-
+    # ユーザー詳細画面
     resources :users, only: [:show] do
       get 'posts'
       get 'comments'
@@ -35,6 +31,8 @@ Rails.application.routes.draw do
       resources :comments, only: [:create,:edit,:update,:destroy]
       resources :favorites, only: [:create, :destroy]
     end
+
+    resources :types, only: [:index, :show]
 
   end
 
@@ -65,6 +63,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update]
     resources :posts, only: [:show, :destroy]
     resources :comments, only: [:index, :destroy]
+    resources :types
 
   end
 
