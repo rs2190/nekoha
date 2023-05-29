@@ -12,6 +12,22 @@ class Comment < ApplicationRecord
 
   end
 
+    # コメント日時
+  def get_comment_word
+
+    if comment_word.length > 10
+
+      # 最初の10文字取得
+      word = comment_word.slice(0..10)
+      word + "..."
+    else
+
+      comment_word
+
+    end
+
+  end
+
   # タイトル取得
   def get_post_title(post_id)
 

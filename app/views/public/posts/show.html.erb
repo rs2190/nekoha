@@ -5,12 +5,12 @@
   <div class = "offset-1">
     <h4><%= @post.title %></h4>
     <div class = "items_image offset-1">
-      <%= image_tag @post.get_profile_image(200) %>
+      <%= image_tag @post.get_image %>
     </div>
   </div>
 
   <div class = "field my-2 offset-1">
-    <table class = "table table-borderless" >
+    <table class = "table table-borderless offset-1" >
       <tbody>
         <tr>
           <th>ユーザー名</th>
@@ -34,16 +34,18 @@
         <tr>
           <td>
             <div>
-                  <p><%= image_tag comment.user.get_profile_image(10) %> <%= comment.user.name %></p>
+                  <p><%= image_tag comment.user.get_profile_image(50) %> <%= comment.user.name %></p>
                   <%= comment.get_comment_date %></br>
                   <%= comment.comment_word %>
             </div>
           </td>
           <td>
+          <% if user_signed_in? && !current_user.is_deleted %>
             <% if comment.user.id == current_user.id %>
               <%= link_to "編集", edit_post_comment_path(@post,comment), class:"btn btn-success" %>
               <%= link_to "削除", post_comment_path(@post,comment), method: :delete, class:"btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？"  %>
             <% end %>
+          <% end %>
           </td>
         </tr>
         <% end %>
@@ -84,10 +86,12 @@
         </tr>
       </tbody>
     </table>
-    <% if @post.user_id == current_user.id %>
-    <div class="d-flex justify-content-lg-between">
-        <%= link_to "編集", edit_post_path(@post.id), class:"btn btn-success btn-block" %>
-    </div>
+    <% if user_signed_in? && !current_user.is_deleted %>
+      <% if @post.user_id == current_user.id %>
+      <div class="d-flex justify-content-lg-between">
+          <%= link_to "編集", edit_post_path(@post.id), class:"btn btn-success btn-block" %>
+      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

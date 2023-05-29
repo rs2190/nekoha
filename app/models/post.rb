@@ -23,12 +23,12 @@ class Post < ApplicationRecord
   end
 
   # 投稿画像を取得する。
-  def get_profile_image(size)
+  def get_image
 
     # 画像を取得出来るか
     upload_default_image unless image.attached?
     # 画像サイズの変更(px)
-    image.variant(resize: size)
+    image.variant( resize: "120x120^", gravity: "center", crop: "100x100+0+0" )
   end
 
   # 投稿画像が存在しない場合、画像が取得する。

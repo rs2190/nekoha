@@ -19,17 +19,17 @@
       <tbody>
         <% @posts.each do |f| %>
         <tr>
-          <td><%= image_tag f.get_profile_image(100) %></td>
+          <td><%= image_tag f.get_image %></td>
           <td>
             <%= link_to post_path(f.id) do %>
               <%= f.title %>
             <% end %>
           </td>
+          <td><%= render 'layouts/tag_list', tag_list: f.tag_list %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
-  </div>
   <div class = "d-flex justify-content-center">
     <%= paginate @posts %>
   </div>

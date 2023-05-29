@@ -2,7 +2,7 @@
   <div class = "offset-1">
     <h4><%= @post.title %></h4>
     <div class = "items_image offset-1">
-      <%= image_tag @post.get_profile_image(200) %>
+      <%= image_tag @post.get_image %>
     </div>
   </div>
 
@@ -22,7 +22,7 @@
           <td><%= @post.posts_comment %></td>
         </tr>
         <tr>
-          <td><%= render 'layouts/tag_list', tag_list: @post.tag_list %></td>
+          <th><%= render 'layouts/tag_list', tag_list: @post.tag_list %></th>
         </tr>
         <tr>
           <th>コメント ： <%= @post.comments.count %> 件</th>
@@ -31,7 +31,7 @@
           <td>
             <% @post.comments.each do |comment| %>
             <div>
-                  <p><%= image_tag comment.user.get_profile_image(10) %> <%= comment.user.name %></p>
+                  <p><%= image_tag comment.user.get_profile_image(30) %> <%= comment.user.name %></p>
                   <%= comment.get_comment_date %></br>
                   <%= comment.comment_word %>
             </div>

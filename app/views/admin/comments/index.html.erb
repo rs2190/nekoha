@@ -28,7 +28,7 @@
             <%= f.get_user_name(f.post_id) %>
           <% end %>
         </td>
-        <td><%= f.comment_word %></td>
+        <td><%= f.get_comment_word %></td>
         <td><%= link_to "削除", admin_comment_path(f.id), method: :delete, class:"btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？"  %></td>
       </tr>
       <% end %>

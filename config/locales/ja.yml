@@ -47,3 +47,4 @@
       messages:
         blank: "を入力してください"
         confirmation: "と%{attribute}の入力が一致しません"
+        record_invalid: "バリデーションに失敗しました: %{errors}"

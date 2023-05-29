@@ -2,7 +2,7 @@
   <div class = "offset-1">
     <h4><%= @type.name %></h4>
     <div class = "items_image offset-1">
-      <%= image_tag @type.get_profile_image(200) %>
+      <%= image_tag @type.get_image(200) %>
     </div>
   </div>
   <div class = "field my-2 offset-1">
@@ -15,6 +15,9 @@
         <tr>
           <th>出　　身</th>
           <td><%= @type.from %></td>
+        </tr>
+        <tr>
+          <td><%= render 'layouts/tag_list', tag_list: @type.tag_list %></td>
         </tr>
         <tr>
           <th>詳　　細</th>

@@ -3,7 +3,7 @@
 </div>
 <div>
   <table class = "table" >
-    <thead class = "table-info">
+    <thead class = "table-success">
       <tr>
         <th></th>
         <th>種類名</th>
@@ -13,7 +13,7 @@
     <tbody>
       <% @types.each do |f| %>
       <tr>
-        <td><%= image_tag f.get_profile_image(50) %></td>
+        <td><%= image_tag f.get_image(60) %></td>
         <td>
         <%= link_to type_path(f.id) do %>
           <%= f.name %>
