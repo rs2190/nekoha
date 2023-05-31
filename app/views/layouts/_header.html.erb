@@ -7,13 +7,18 @@
           <nav>
              <ul class="nav navbar-right">
               <% if user_signed_in? && !current_user.is_deleted %>
-                 <li>
+                <li>
                   ユーザー名：<%= current_user.name %>
                 </li>
                 <li>
+                  <%= link_to posts_path, class:"nav-link text-right" do %>
+                    検索
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to about_path, class:"nav-link text-right" do %>
-                  About
-                <% end %>
+                    About
+                  <% end %>
                 </li>
                 <li>
                   <%= link_to my_page_path, class:"nav-link text-right" do %>
@@ -57,6 +62,11 @@
                 </li>
               </li>
               <% else %>
+                <li>
+                  <%= link_to posts_path, class:"nav-link text-right" do %>
+                    検索
+                  <% end %>
+                </li>
                 <li>
                   <%= link_to about_path, class:"nav-link text-right" do %>
                     About

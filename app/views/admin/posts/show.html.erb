@@ -11,7 +11,11 @@
       <tbody>
         <tr>
           <th>ユーザー名</th>
-          <td><%= @post.user.name %></td>
+          <td>
+          <%= link_to admin_user_path(f.id) do %>
+            <%= @post.user.name %>
+          <% end %>
+          </td>
         </tr>
         <tr>
           <th>投稿日時</th>

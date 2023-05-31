@@ -10,7 +10,7 @@ class Type < ApplicationRecord
 
     validates :name
     validates :body_length
-    validates :from
+    validates :country
     validates :detail
 
   end

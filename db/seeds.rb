@@ -105,7 +105,7 @@ mikeneko =
 Type.create!(
     name: "三毛猫",
     body_length: "26~28cm",
-    from: "日本",
+    country: "日本",
     detail: "かわいい",
     )
 mikeneko.tag_list.add("かわいい", "キュート")
@@ -115,7 +115,7 @@ kuroneko =
 Type.create!(
     name: "黒猫",
     body_length: "約25cm",
-    from: "日本",
+    country: "日本",
     detail: "かわいい"
     )
 kuroneko.tag_list.add("かわいい", "黒猫", "キュート")
@@ -126,7 +126,7 @@ amesho =
 Type.create!(
     name: "アメリカンショートヘアー",
     body_length: "約40～60cm",
-    from: "アメリカ",
+    country: "アメリカ",
     detail: "かわいい"
     )
 amesho.tag_list.add("アメショ", "キュート")

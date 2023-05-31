@@ -8,23 +8,28 @@
       <%= image_tag @post.get_image %>
     </div>
   </div>
-
   <div class = "field my-2 offset-1">
     <table class = "table table-borderless offset-1" >
       <tbody>
         <tr>
           <th>ユーザー名</th>
-          <td><%= @post.user.name %></td>
+          <td>
+          <%= link_to user_path(@post.user_id) do %>
+            <%= @post.user.name %>
+          <% end %>
+          </td>
         </tr>
         <tr>
           <th>投稿日時</th>
           <td><%= @post.get_posted_date %></td>
         </tr>
         <tr>
-          <td><%= render 'layouts/tag_list', tag_list: @post.tag_list %></td>
+          <td><%= render 'layouts/post_tag_list', tag_list: @post.tag_list %></td>
         </tr>
         <tr>
           <th>投稿コメント</th>
+        </tr>
+        <tr>
           <td><%= @post.posts_comment %></td>
         </tr>
         <tr>

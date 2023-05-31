@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2023_05_26_111949) do
   create_table "types", force: :cascade do |t|
     t.string "name", null: false
     t.string "body_length", null: false
-    t.string "from", null: false
+    t.string "country", null: false
     t.text "detail", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

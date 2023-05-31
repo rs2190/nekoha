@@ -1,5 +1,11 @@
 <div class = "d-flex justify-content-between">
   <h4 class = "field m-3">ねこずかん</h4>
+    <div class="search_form">
+    <%= form_with url: types_path, local: true, method: :get do |s| %>
+      <%= s.text_field :word %>
+      <%= s.submit "検索", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 <div>
   <table class = "table" >
@@ -20,13 +26,13 @@
         <% end %>
         </td>
         <td>
-          <%= render 'layouts/tag_list', tag_list: f.tag_list %>
+          <%= render 'layouts/type_tag_list', tag_list: f.tag_list %>
         </td>
       </tr>
       <% end %>
     </tbody>
   </table>
-</diV>
+</div>
 <div class = "d-flex justify-content-center">
   <%= paginate @types %>
 </div>

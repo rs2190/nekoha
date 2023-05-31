@@ -1,35 +1,43 @@
-<div class = "row">
-  <% if user_signed_in? && !current_user.is_deleted %>
-     <%= render 'layouts/users_sidebar' %>
-  <% end %>
-  <div class = "d-flex justify-content-between">
-    <h4 class = "gray field m-3">投稿内容一覧</h4>
+<div class = "d-flex justify-content-between">
+  <h4 class = "gray field m-3">投稿内容一覧</h4>
+  <div class="search_form">
+    <%= form_with url: posts_path, local: true, method: :get do |s| %>
+      <%= s.text_field :word %>
+      <%= s.submit "検索", class: "btn btn-primary" %>
+    <% end %>
   </div>
-  <div>
-    <table class = "table" >
-      <thead class = "table-info">
-        <tr>
-          <th></th>
-          <th>タイトル</th>
-          <th>タグ</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @posts.each do |f| %>
-        <tr>
-          <td><%= image_tag f.get_image %></td>
-          <td>
-            <%= link_to post_path(f.id) do %>
-              <%= f.title %>
-            <% end %>
-          </td>
-          <td><%= render 'layouts/tag_list', tag_list: f.tag_list %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+</div>
+<div>
+  <table class = "table" >
+    <thead class = "table-info">
+      <tr>
+        <th></th>
+        <th>タイトル</th>
+        <th>タグ</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |f| %>
+      <tr>
+        <td><%= image_tag f.get_image %></td>
+        <td>
+          <%= link_to post_path(f.id) do %>
+            <%= f.title %>
+          <% end %>
+        </td>
+        <td><%= render 'layouts/post_tag_list', tag_list: f.tag_list %></td>
+        <td>
+          ♥<%= f.favorites.count %> いいね
+        </td>
+        <td>
+          コメント ： <%= f.comments.count %> 件
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
   <div class = "d-flex justify-content-center">
     <%= paginate @posts %>
   </div>

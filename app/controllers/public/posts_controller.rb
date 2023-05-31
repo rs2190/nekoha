@@ -1,9 +1,24 @@
 class Public::PostsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new , :create, :update, :edit ,:destroy]
+
   # 投稿内容一覧（全て）
   def index
 
     @posts = Post.page(params[:page]).per(10).order(id: "DESC")
+
+    # タグ検索
+    if params[:tag_name]
+
+      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10).order(id: "DESC")
+
+    # キーワード検索
+    elsif params[:word]
+
+      @posts = Post.where(['title LIKE(?) OR posts_comment LIKE(?) ', "%#{params[:word]}%", "%#{params[:word]}%"]).page(params[:page]).per(10).order(id: "DESC")
+
+
+    end
 
   end
 

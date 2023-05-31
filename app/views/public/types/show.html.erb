@@ -13,14 +13,16 @@
           <td><%= @type.body_length %></td>
         </tr>
         <tr>
-          <th>出　　身</th>
-          <td><%= @type.from %></td>
+          <th>原 産 国</th>
+          <td><%= @type.country %></td>
         </tr>
         <tr>
-          <td><%= render 'layouts/tag_list', tag_list: @type.tag_list %></td>
+          <td><%= render 'layouts/type_tag_list', tag_list: @type.tag_list %></td>
         </tr>
         <tr>
           <th>詳　　細</th>
+        </tr>
+        <tr>
           <td><%= @type.detail %></td>
         </tr>
       </tbody>
