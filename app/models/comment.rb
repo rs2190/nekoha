@@ -5,6 +5,13 @@ class Comment < ApplicationRecord
   # comment と post の 1 : N のアソシエーション実装
   belongs_to :post
 
+  # バリデーション
+  with_options presence: true do
+
+    validates :comment_word
+
+  end
+
   # コメント日時
   def get_comment_date
 

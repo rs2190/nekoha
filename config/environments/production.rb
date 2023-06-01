@@ -120,4 +120,7 @@ Rails.application.configure do
 
   config.hosts.clear
 
+  # SQLite3::BusyException: database is locked　防止 (ActiveRecord)
+  config.active_job.queue_adapter = :inline
+
 end

@@ -13,10 +13,18 @@ class Public::PostsController < ApplicationController
       @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10).order(id: "DESC")
 
     # キーワード検索
-    elsif params[:word]
+
+    # 「投稿内容で検索」タグで検索した場合
+    elsif params["model"]  == 'post'
 
       @posts = Post.where(['title LIKE(?) OR posts_comment LIKE(?) ', "%#{params[:word]}%", "%#{params[:word]}%"]).page(params[:page]).per(10).order(id: "DESC")
 
+    # 「投稿ユーザーで検索」タグで検索した場合
+    elsif params["model"]  == 'user'
+
+    #   user = User.where(['name LIKE(?) ', "%#{params[:word]}%"])
+
+    # @posts = Post.where(['user_id LIKE(?)', "%#{}%", "%#{params[:word]}%"]).page(params[:page]).per(10).order(id: "DESC")
 
     end
 
