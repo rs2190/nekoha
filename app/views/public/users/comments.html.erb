@@ -22,8 +22,8 @@
             <% end %>
           </td>
           <td>
-            <%= link_to user_path(f.user_id) do %>
-              <%= f.get_user_name(f.user_id) %>
+            <%= link_to user_path(f.get_post_user_id(f.post_id)) do %>
+              <%= f.get_post_user_name(f.post_id) %>
             <% end %>
           </td>
           <td>

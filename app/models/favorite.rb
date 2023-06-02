@@ -12,10 +12,19 @@ class Favorite < ApplicationRecord
 
   end
 
-  # 名前取得
-  def get_user_name(user_id)
+  # 投稿者ID取得
+  def get_post_user_id(post_id)
 
-    User.where(id: user_id).pluck(:name)[0]
+    Post.where(id: post_id).pluck(:user_id)[0]
+
+  end
+
+  # 投稿ユーザー取得
+  def get_post_user_name(post_id)
+
+    post_user_id = get_post_user_id(post_id)
+
+    User.where(id: post_user_id).pluck(:name)[0]
 
   end
 

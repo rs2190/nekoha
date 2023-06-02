@@ -12,6 +12,17 @@ class User < ApplicationRecord
   # comments と users の 1 : N のアソシエーション実装
   has_many :comments, dependent: :destroy
 
+   # バリデーション
+  with_options presence: true do
+
+    validates :name
+    validates :sex
+    validates :email
+    validates :self_introduction
+
+  end
+
+
 
   # ActiveStorage(imageカラム)を追加して、画像を投稿出来るようにする。
   has_one_attached :image

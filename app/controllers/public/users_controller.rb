@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
   # マイページ
   def show
     # Userモデルを呼ぶ。
-    @user = user_find
+    @user = user_find_params_id
 
   end
 

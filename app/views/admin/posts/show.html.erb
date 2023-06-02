@@ -35,7 +35,7 @@
           <td>
             <% @post.comments.each do |comment| %>
             <div>
-                  <p><%= image_tag comment.user.get_profile_image(30) %> <%= comment.user.name %></p>
+                  <p><%= image_tag comment.user.get_profile_image(50) %> <%= comment.user.name %></p>
                   <%= comment.get_comment_date %></br>
                   <%= comment.comment_word %>
             </div>

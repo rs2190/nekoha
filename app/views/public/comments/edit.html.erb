@@ -3,6 +3,7 @@
   <div class = "offset-1 col-7">
   <h4>コメント編集</h4>
   <%= form_with model: @comment, url: post_comment_path(@comment.id), method: :patch do |f| %>
+   <%= render 'layouts/error_messages', model: f.object %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>

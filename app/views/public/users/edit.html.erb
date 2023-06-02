@@ -3,6 +3,7 @@
   <div class = "offset-1 col-7">
   <h4>プロフィール編集</h4>
   <%= form_with model: @user, url: update_information_users_path, method: :patch do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>
