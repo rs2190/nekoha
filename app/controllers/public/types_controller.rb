@@ -13,7 +13,11 @@ class Public::TypesController < ApplicationController
     # キーワード検索
     elsif params[:word]
 
-      @types = Type.where(['name LIKE(?) OR body_length LIKE(?) OR country LIKE(?) OR detail LIKE(?) ', "%#{params[:word]}%", "%#{params[:word]}%",  "%#{params[:word]}%", "%#{params[:word]}%"]).page(params[:page]).per(10).order(id: "DESC")
+      # params[:word] を サニタイズする。
+      key_word =  "%#{ActiveRecord::Base.sanitize_sql_like(params[:word].to_s)}%"
+
+      # Typeモデルのカラムに、キーワード部分一致するものを取得する。
+      @types = Type.where("name like ? or body_length like ? or country like ? or detail like ?", key_word, key_word, key_word, key_word).page(params[:page]).per(10).order(id: "DESC")
 
     end
 
