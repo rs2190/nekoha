@@ -17,14 +17,16 @@ class Public::PostsController < ApplicationController
     # 「投稿内容で検索」タグで検索した場合
     elsif params["model"]  == 'post'
 
-      @posts = Post.where(['title LIKE(?) OR posts_comment LIKE(?) ', "%#{params[:word]}%", "%#{params[:word]}%"]).page(params[:page]).per(10).order(id: "DESC")
+      # params[:word] を サニタイズする。
+      key_word =  "%#{ActiveRecord::Base.sanitize_sql_like(params[:word].to_s)}%"
+      @posts = Post.where("title like ? or posts_comment like ? ", key_word, key_word).page(params[:page]).per(10).order(id: "DESC")
 
     # 「投稿ユーザーで検索」タグで検索した場合
     elsif params["model"]  == 'user'
 
-    #   user = User.where(['name LIKE(?) ', "%#{params[:word]}%"])
-
-    # @posts = Post.where(['user_id LIKE(?)', "%#{}%", "%#{params[:word]}%"]).page(params[:page]).per(10).order(id: "DESC")
+      # params[:word] を サニタイズする。
+      key_word =  "%#{ActiveRecord::Base.sanitize_sql_like(params[:word].to_s)}%"
+      @posts =  Post.joins(:user).where("users.name like ?", key_word).page(params[:page]).per(10).order(id: "DESC")
 
     end
 
