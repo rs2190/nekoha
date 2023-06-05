@@ -2,7 +2,9 @@
       <nav class="navbar navbar-expand-lg border border-bottom-dark">
         <div class="container">
           <nav class="nav navbar-nav navbar-left">
-            <!--ロゴ -->
+            <%= link_to root_path do %>
+              <%= image_tag 'logo.png' ,:width => '100', :height => '100' %>
+            <% end %>
           </nav>
           <nav>
              <ul class="nav navbar-right">

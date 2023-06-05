@@ -1,5 +1,6 @@
 class Public::FavoritesController < ApplicationController
 
+  # いいね登録処理
   def create
 
     @post = Post.find(params[:post_id])
@@ -9,6 +10,7 @@ class Public::FavoritesController < ApplicationController
 
   end
 
+   # いいね削除録処理
   def destroy
 
     @post = Post.find(params[:post_id])

@@ -53,7 +53,7 @@ posts =
     end
 
     # 画像
-    # posts.image.attach(io: File.open(Rails.root.join("app/assets/images/cats/cat#{n + 1}.jpg")), filename: "cat#{n + 1}.jpg")
+    posts.image.attach(io: File.open(Rails.root.join("app/assets/images/cats/cat#{n + 1}.jpg")), filename: "cat#{n + 1}.jpg")
     posts.save
 end
 

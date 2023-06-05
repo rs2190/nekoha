@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+@media screen and (max-width:781){
+
+    th{
+        width: 25%;
+    }
+    td{
+        width: 25%;
+    }
+}
+
+
+
