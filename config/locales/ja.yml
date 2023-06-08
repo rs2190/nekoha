@@ -21,25 +21,36 @@
     activerecord:
       models:
         user: "会員"
+        post: "投稿"
+        comment: "コメント"
+        favorite: "いいね"
         admin: "管理者"
+        type: "種類"
 
       attributes:
         user:
           current_password: "現在のパスワード"
           email: "メールアドレス"
-          last_name: "名前(姓)"
-          first_name: "名前(名)"
-          last_name_kana: "フリガナ (セイ)"
-          first_name_kana: "フリガナ (メイ)"
-          postal_code: "郵便番号 (ハイフンなし)"
-          address: "住所"
-          telephone_number: "電話番号 (ハイフンなし)"
-          password: "パスワード (6文字以上) "
+          name: "ユーザー名"
+          sex: "性別"
+          self_introduction: "自己紹介文"
+          is_deleted: "退会ステータス"
+          password: "パスワード"
           password_confirmation: "パスワード (確認用) "
           encrypted_password: "暗号化パスワード"
+        post:
+          title: "タイトル名"
+          posts_comment: "投稿コメント"
+        comment:
+          comment_word: "コメント内容"
         admin:
           email: "メールアドレス"
           password: "パスワード"
+        type:
+          name: "種類名"
+          body_length: "体長"
+          country: "原産国"
+          detail: "詳細"
 
     # バリデーションエラー
     errors:

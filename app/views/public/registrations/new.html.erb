@@ -5,7 +5,7 @@
 
   <div class="field">
     <strong><%= f.label :name, "ユーザー名（ニックネーム）" %></strong></br>
-    <%= f.text_field :name, :placeholder => "ねこは太郎" %>
+    <%= f.text_field :name, :placeholder => "ねこは太郎", maxlength: "20"  %>
   </div>
 
   <div class="field">

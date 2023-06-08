@@ -52,7 +52,7 @@ class User < ApplicationRecord
     # 画像を取得出来るか
     upload_default_image unless image.attached?
     # 画像サイズの変更(px)
-    image.variant(resize: size)
+    image.variant(resize: size).processed
   end
 
   # プロフィール画像が存在しない場合、画像が取得する。
