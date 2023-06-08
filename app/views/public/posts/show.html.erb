@@ -2,13 +2,11 @@
   <% if user_signed_in? && !current_user.is_deleted %>
      <%= render 'layouts/users_sidebar' %>
   <% end %>
-  <div class = "offset-1">
-    <h4><%= @post.title %></h4>
-    <div class = "items_image offset-1">
-      <%= image_tag @post.get_image %>
-    </div>
-  </div>
   <div class = "field my-2 offset-1">
+    <div class = "items_image offset-1">
+      <h4><%= @post.title %></h4>
+      <%= image_tag @post.get_show_post_image(300) %>
+    </div>
     <table class = "table table-borderless offset-1" >
       <tbody>
         <tr>
@@ -72,13 +70,13 @@
               <% if @post.favorited?(current_user) %>
                 <p>
                   <%= link_to post_favorite_path(@post), method: :delete do %>
-                    ♥<%= @post.favorites.count %> いいね
+                    <i class="fas fa-heart"></i><%= @post.favorites.count %> いいね
                   <% end %>
                 </p>
                 <% else %>
                 <p>
                   <%= link_to post_favorites_path(@post), method: :post do %>
-                    ♡<%= @post.favorites.count %> いいね
+                    <i class="far fa-heart"></i><%= @post.favorites.count %> いいね
                   <% end %>
                 </p>
               <% end %>

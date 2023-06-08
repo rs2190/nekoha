@@ -1,4 +1,4 @@
-   <header>
+   <header class ="header bg-secondary">
       <nav class="navbar navbar-expand-lg border border-bottom-dark">
         <div class="container">
           <nav class="nav navbar-nav navbar-left">
@@ -6,40 +6,46 @@
               <%= image_tag 'logo.png' ,:width => '100', :height => '100' %>
             <% end %>
           </nav>
+          <nav class="nav navbar-nav navbar-left">
+            <% if user_signed_in? && !current_user.is_deleted %>
+              <li>
+                <div class="nav navbar-right text-light">
+                  ユーザー名：<%= current_user.name %>
+                </div>
+              </li>
+            <% end %>
+          </nav>
           <nav>
              <ul class="nav navbar-right">
               <% if user_signed_in? && !current_user.is_deleted %>
                 <li>
-                  ユーザー名：<%= current_user.name %>
-                </li>
-                <li>
-                  <%= link_to posts_path, class:"nav-link text-right" do %>
-                    検索
+                  <%= link_to posts_path, class:"nav-link text-light" do %>
+                    <i class="fas fa-search"></i>
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to about_path, class:"nav-link text-right" do %>
+                  <%= link_to about_path, class:"nav-link text-light bg-dark" do %>
                     About
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to my_page_path, class:"nav-link text-right" do %>
+                  <%= link_to my_page_path, class:"nav-link text-light bg-dark" do %>
                     マイページ
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-right" do %>
+                  <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light bg-dark" do %>
                     ログアウト
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to types_path, class:"nav-link text-right" do %>
+                  <%= link_to types_path, class:"nav-link text-light bg-dark" do %>
                     ねこずかん
                   <% end %>
                 </li>
               <% elsif admin_signed_in? %>
                 <li>
-                  <%= link_to admin_users_path, class:"nav-link text-right" do %>
+                  <%= link_to admin_users_path, class:"nav-link text-light bg-dark" do %>
                     ユーザー一覧
                   <% end %>
                 </li>

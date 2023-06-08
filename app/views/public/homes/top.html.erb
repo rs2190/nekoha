@@ -1,20 +1,19 @@
   <div class="offset-1">
   	<div>
   		<div class="jumbotron">
-  			<div>
+  			<div class ="d-flex align-items-center">
   			 <p><strong>
   			  	do you like cat?
           </strong></p>
   			 </div>
   		</div>
   	</div>
-  	<h4>新着商品</h4>
-  	<div class="row">
+  	<h4>新着投稿</h4>
       <div class ="d-flex justify-content-between flex-wrap">
         <% @posts.each do |f| %>
           <div class="posts offset-1">
             <%= link_to post_path(f.id) do %>
-              <%= image_tag f.get_image %><br>
+              <%= image_tag f.get_post_image_wide_height(200,150) %><br>
             <% end %>
             <%= f.title %><br>
            <%= link_to user_path(f.user_id) do %>
@@ -24,8 +23,8 @@
         <% end %>
 　　　　</div>
       </div>
-      <div class ="d-flex justify-content-end">
-  	     <%= link_to "すべての商品を見る＞", posts_path %>
+      <div class ="offset-1 d-flex justify-content-end">
+  	     <%= link_to "全投稿を見る＞", posts_path %>
   	 </div>
     </div>
 </div>
