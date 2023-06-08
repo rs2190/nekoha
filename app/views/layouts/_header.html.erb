@@ -3,7 +3,7 @@
         <div class="container">
           <nav class="nav navbar-nav navbar-left">
             <%= link_to root_path do %>
-              <%= image_tag 'logo.png' ,:width => '100', :height => '100' %>
+              <%= image_tag 'logo.png' ,:width => '120', :height => '120' %>
             <% end %>
           </nav>
           <nav class="nav navbar-nav navbar-left">
@@ -50,48 +50,49 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to admin_comments_path, class:"nav-link text-right" do %>
+                  <%= link_to admin_comments_path, class:"nav-link text-light bg-dark" do %>
                     コメント一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to admin_home_top_path, class:"nav-link text-right" do %>
+                  <%= link_to admin_home_top_path, class:"nav-link text-light bg-dark" do %>
                     投稿内容一覧
                   <% end %>
                 </li>
                 <li>
-                <%= link_to destroy_admin_session_path, method: :delete,  class:"nav-link text-right" do %>
+                <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-light bg-dark" do %>
                   ログアウト
                 <% end %>
                 <li>
-                  <%= link_to admin_types_path, class:"nav-link text-right" do %>
+                  <%= link_to admin_types_path, class:"nav-link text-light bg-dark" do %>
                     ねこずかん
                   <% end %>
                 </li>
               </li>
               <% else %>
                 <li>
-                  <%= link_to posts_path, class:"nav-link text-right" do %>
-                    検索
+                  <%= link_to posts_path, class:"nav-link text-light" do %>
+                    <i class="fas fa-search"></i>
                   <% end %>
                 </li>
+                </li>
                 <li>
-                  <%= link_to about_path, class:"nav-link text-right" do %>
+                  <%= link_to about_path, class:"nav-link text-light bg-dark" do %>
                     About
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to new_user_registration_path, class:"nav-link text-right" do %>
+                  <%= link_to new_user_registration_path, class:"nav-link text-light bg-dark" do %>
                     新規登録
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to new_user_session_path, class:"nav-link text-right" do %>
+                  <%= link_to new_user_session_path, class:"nav-link text-light bg-dark" do %>
                     ログイン
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to types_path, class:"nav-link text-right" do %>
+                  <%= link_to types_path, class:"nav-link text-light bg-dark" do %>
                     ねこずかん
                   <% end %>
                 </li>

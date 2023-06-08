@@ -2,17 +2,24 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <strong><%= f.label :email, "メールアドレス" %></strong></br><br />
+    <strong>
+    <%= f.label :email,"メールアドレス" %></br>
+    </strong>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <strong>
+      <%= f.label :password, "パスワード" %>
+      <% if @minimum_password_length %>
+        (<%= @minimum_password_length %>文字以上)
+      <% end %>
+    </strong></br>
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
-
+  </br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン", class: "btn btn-primary"  %><br/><br/>
   </div>
 <% end %>
 

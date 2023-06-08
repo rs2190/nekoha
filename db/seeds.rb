@@ -64,7 +64,7 @@ end
         Comment.create!(
             user_id: n + 1,
             post_id: 1,
-            comment_word: "ユーザー1さん。初めまして。ユーザー#{n + 1}です。かわいい猫の写真ですね！",
+            comment_word: "ユーザー#{n + 1}です。かわいい猫の写真ですね！",
         )
 
         Favorite.create!(
@@ -76,7 +76,7 @@ end
         Comment.create!(
             user_id: n,
             post_id: 1,
-            comment_word: "ユーザー1さん。初めまして。ユーザー#{n}です。かわいい猫の写真ですね！",
+            comment_word: "ユーザー#{n}です。かわいい猫の写真ですね！",
         )
 
         Favorite.create!(
@@ -88,7 +88,7 @@ end
         Comment.create!(
             user_id: n + 1,
             post_id: n + 2,
-            comment_word: "ユーザー#{n + 2}さん。初めまして。ユーザー#{n + 1}です。かわいい猫の写真ですね！",
+            comment_word: "ユーザー#{n + 1}です。かわいい猫の写真ですね！",
         )
 
         Favorite.create!(
