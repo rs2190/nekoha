@@ -99,7 +99,7 @@ class Public::PostsController < ApplicationController
     @post = post_find_params_id
     @post.destroy
     notice("投稿内容を削除しました。")
-    redirect_to user_index_path
+    redirect_to user_posts_path(current_user.id)
 
   end
 

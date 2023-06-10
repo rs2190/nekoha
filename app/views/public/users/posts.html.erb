@@ -23,7 +23,7 @@
           </td>
           <td>
             <% if f.user_id == current_user.id %>
-              <%= link_to "変更", edit_post_path(f.id), method: :get , class: "btn btn-success" %>
+              <%= link_to "編集", edit_post_path(f.id), method: :get , class: "btn btn-success" %>
             <% end %>
           </td>
         </tr>
