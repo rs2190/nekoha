@@ -21,15 +21,16 @@ class Admin::TypesController < ApplicationController
   def create
 
     # データを受け取り新規登録するためのインスタンス作成
-    type = Type.new(type_params)
+    @type = Type.new(type_params)
+    # 登録時チェック
+    if @type.save
+      # 成功時
+      notice("ねこずかんを追加しました。")
+      redirect_to admin_type_path(@type.id)
+    else
 
-    # コメント登録
-    type.save
-
-    notice("ねこずかんを追加しました。")
-
-    # 遷移先
-    redirect_to admin_type_path(type.id)
+      render :new
+    end
 
   end
 
@@ -80,7 +81,7 @@ class Admin::TypesController < ApplicationController
   # ストロングパラメータ
   def type_params
 
-    params.require(:type).permit(:image,:name,:body_length,:from,:tag_list,:detail)
+    params.require(:type).permit(:image,:name,:body_length,:country,:tag_list,:detail)
 
   end
 end

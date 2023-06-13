@@ -8,7 +8,7 @@
       <thead class = "table-primary">
         <tr>
           <th>タイトル</th>
-          <th>投稿者</th>
+          <th>投稿ユーザー</th>
           <th>コメント</th>
           <th></th>
         </tr>
@@ -30,9 +30,11 @@
             <%= f.comment_word %>
           </td>
           <td>
-            <% if f.user_id == current_user.id %>
-              <%= link_to "編集", edit_post_comment_path(f.post_id,f.id), class:"btn btn-success" %>
-              <%= link_to "削除", post_comment_path(f.post_id,f.id), method: :delete, class:"btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？"  %>
+            <% if user_signed_in? && !current_user.is_deleted %>
+              <% if f.user_id == current_user.id %>
+                <%= link_to "編集", edit_post_comment_path(f.post_id,f.id), class:"btn btn-success" %>
+                <%= link_to "削除", post_comment_path(f.post_id,f.id), method: :delete, class:"btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？"  %>
+              <% end %>
             <% end %>
           </td>
         </tr>

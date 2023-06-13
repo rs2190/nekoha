@@ -3,6 +3,7 @@
 </div>
 <div>
   <%= form_with model: @type, url: admin_type_path, method: :patch do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>

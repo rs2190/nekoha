@@ -31,4 +31,12 @@ class Type < ApplicationRecord
     image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
 
+    # 投稿日時
+  def get_posted_date
+
+    created_at.strftime('%Y/%m/%d %H:%M')
+
+  end
+
+
 end

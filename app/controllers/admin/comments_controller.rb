@@ -14,6 +14,7 @@ class Admin::CommentsController < ApplicationController
 
     comments = comment_find_params_id
     comments.destroy
+    notice("コメントを削除しました。")
     redirect_to admin_comments_path
 
   end

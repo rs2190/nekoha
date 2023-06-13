@@ -2,6 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :user_state, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -46,8 +47,10 @@ class Public::SessionsController < Devise::SessionsController
     redirect_to root_path
   end
 
+  protected
+
    # 退会しているかを判断するメソッド
-  def customer_state
+  def user_state
       ## 入力されたemailからアカウントを1件取得
     @user = User.find_by(email: params[:user][:email])
     ## アカウントを取得できなかった場合、このメソッドを終了する
