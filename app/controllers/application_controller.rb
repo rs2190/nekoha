@@ -28,7 +28,8 @@ class ApplicationController < ActionController::Base
         keys: [
           :name,
           :email,
-          :encrypted_password,
+          :self_introduction,
+          :encrypted_password
         ]
     )
 

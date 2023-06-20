@@ -14,6 +14,11 @@
   </div>
 
   <div class="field">
+    <strong><%= f.label :self_introduction, "自己紹介文" %></strong></br>
+    <%= f.text_field :self_introduction, :placeholder => "よろしくお願いします。", value: "よろしくお願いします。" %>
+  </div>
+
+  <div class="field">
     <strong>
     <%= f.label :password, "パスワード" %>
     <% if @minimum_password_length %>
