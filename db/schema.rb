@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2023_05_26_111949) do
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.integer "sex", default: 0, null: false
-    t.text "self_introduction", default: "よろしくお願いいたします。", null: false
+    t.text "self_introduction", null: false
     t.boolean "is_deleted", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -133,5 +133,4 @@ ActiveRecord::Schema.define(version: 2023_05_26_111949) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "taggings", "tags"
 end
