@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # 性別
       t.integer :sex, null: false, default: 0
       # 自己紹介文
-      t.text :self_introduction, null: false, default: "よろしくお願いいたします。"
+      t.text :self_introduction, null: false
       # 退会ステータス
       t.boolean :is_deleted, null: false, default: false
 
