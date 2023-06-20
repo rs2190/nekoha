@@ -5,7 +5,9 @@ class AddMissingUniqueIndices < ActiveRecord::Migration[6.0]
   def self.up
     add_index ActsAsTaggableOn.tags_table, :name, unique: true
 
+    # MySQLだと、外部キーを削除しなければならないため追加。(SQLiteは、外部キーはそのまま)
     remove_foreign_key :taggings, :tags
+
     remove_index ActsAsTaggableOn.taggings_table, :tag_id if index_exists?(ActsAsTaggableOn.taggings_table, :tag_id)
     remove_index ActsAsTaggableOn.taggings_table, name: 'taggings_taggable_context_idx'
     add_index ActsAsTaggableOn.taggings_table,
