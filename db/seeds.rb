@@ -22,7 +22,8 @@ User.destroy_all
   User.create!(
       email: "user#{n + 1}@nekoha.com",
       name: "ユーザー#{n + 1}",
-      password: "000000"
+      password: "000000",
+      self_introduction: "ユーザー#{n + 1}です。お願いします。"
     )
 
 end
