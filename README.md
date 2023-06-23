@@ -1,6 +1,6 @@
 # nekoha（ネコハ）
 
-!(https://drive.google.com/file/d/1rLdI3z0TH0yzLC_l7f6DwUyA-35TmQaA/view?usp=drive_link)
+<img width="150" src="https://drive.google.com/file/d/1rLdI3z0TH0yzLC_l7f6DwUyA-35TmQaA/view?usp=drive_link">
 
 ## サイト概要
 ### サイトテーマ
