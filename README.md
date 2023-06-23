@@ -28,9 +28,8 @@
 ## 設計書
 
 【画面遷移図(ui_flow)】
-[ユーザー側](https://drive.google.com/file/d/1UbEjQPl6BTtfMiQIARHY1Dd6Vu1dA-U8/view?usp=drive_link)
-[管理者側](https://drive.google.com/file/d/1YKGA41hfDwRL1xXUdvY-pz1Zn2m3pN9p/view?usp=drive_link)
-
+## [ユーザー側](https://drive.google.com/file/d/1UbEjQPl6BTtfMiQIARHY1Dd6Vu1dA-U8/view?usp=drive_link)
+## [管理者側](https://drive.google.com/file/d/1YKGA41hfDwRL1xXUdvY-pz1Zn2m3pN9p/view?usp=drive_link)
 
 ## 開発環境
 - OS：Linux(CentOS)
