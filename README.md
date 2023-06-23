@@ -40,10 +40,10 @@
 ###### [テーブル定義書](https://docs.google.com/spreadsheets/d/1F3mhfaVeLQN8beI9UKOpV8LLzSn8yx1vS2IitjarGuo/edit?usp=drive_link)
 
 【詳細設計】
-###### [テーブル定義書](https://docs.google.com/spreadsheets/d/1I4gKTA0DCQ25H2u4z6ZfsPtTzjxlvYky1MAg-gqhJOI/edit?usp=drive_link)
+###### [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1I4gKTA0DCQ25H2u4z6ZfsPtTzjxlvYky1MAg-gqhJOI/edit?usp=drive_link)
 
 【その他成果物】
-######【テスト仕様書】(https://docs.google.com/spreadsheets/d/1oAp2aHEeHgWQlutWTmLO66IU_RdswCWFpkAoqEoxO7Y/edit?usp=drive_link)
+###### [テスト仕様書](https://docs.google.com/spreadsheets/d/1oAp2aHEeHgWQlutWTmLO66IU_RdswCWFpkAoqEoxO7Y/edit?usp=drive_link)
 
 ## 開発環境
 - OS：Linux(CentOS)
