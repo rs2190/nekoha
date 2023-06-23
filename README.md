@@ -1,5 +1,7 @@
 # nekoha（ネコハ）
 
+![代替テキスト](https://drive.google.com/file/d/1rLdI3z0TH0yzLC_l7f6DwUyA-35TmQaA/view?usp=drive_link)
+
 ## サイト概要
 ### サイトテーマ
 猫好き、猫派のユーザーが写真などを投稿でき、世界中の猫の種類を紹介するコミュニティサイト。
