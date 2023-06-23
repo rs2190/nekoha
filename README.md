@@ -28,16 +28,22 @@
 ## 設計書
 
 【画面遷移図(ui_flow)】
-#### [ユーザー側](https://drive.google.com/file/d/1UbEjQPl6BTtfMiQIARHY1Dd6Vu1dA-U8/view?usp=drive_link)
-#### [管理者側](https://drive.google.com/file/d/1YKGA41hfDwRL1xXUdvY-pz1Zn2m3pN9p/view?usp=drive_link)
+###### [ユーザー側](https://drive.google.com/file/d/1UbEjQPl6BTtfMiQIARHY1Dd6Vu1dA-U8/view?usp=drive_link)
+###### [管理者側](https://drive.google.com/file/d/1YKGA41hfDwRL1xXUdvY-pz1Zn2m3pN9p/view?usp=drive_link)
 
 【ワイヤーフレーム】
-#### [ユーザー側](https://drive.google.com/file/d/1y2VzQenV3vgg3B_F2cO2BTXG7NnGRzW8/view?usp=drive_link)
-#### [管理者側](https://drive.google.com/file/d/1mCA5hD01jAKqCV4fds-ka3RHnLdXynOm/view?usp=drive_link)
+###### [ユーザー側](https://drive.google.com/file/d/1y2VzQenV3vgg3B_F2cO2BTXG7NnGRzW8/view?usp=drive_link)
+###### [管理者側](https://drive.google.com/file/d/1mCA5hD01jAKqCV4fds-ka3RHnLdXynOm/view?usp=drive_link)
 
 【DB設計】
-#### [ER図](https://drive.google.com/file/d/1PnB3TJOWJ0I6KpLOovthA_nLkNfaqNp0/view?usp=drive_link)
-#### [テーブル定義書](https://docs.google.com/spreadsheets/d/1F3mhfaVeLQN8beI9UKOpV8LLzSn8yx1vS2IitjarGuo/edit?usp=drive_link)
+###### [ER図](https://drive.google.com/file/d/1PnB3TJOWJ0I6KpLOovthA_nLkNfaqNp0/view?usp=drive_link)
+###### [テーブル定義書](https://docs.google.com/spreadsheets/d/1F3mhfaVeLQN8beI9UKOpV8LLzSn8yx1vS2IitjarGuo/edit?usp=drive_link)
+
+【詳細設計】
+###### [テーブル定義書](https://docs.google.com/spreadsheets/d/1I4gKTA0DCQ25H2u4z6ZfsPtTzjxlvYky1MAg-gqhJOI/edit?usp=drive_link)
+
+【その他成果物】
+######【テスト仕様書】(https://docs.google.com/spreadsheets/d/1oAp2aHEeHgWQlutWTmLO66IU_RdswCWFpkAoqEoxO7Y/edit?usp=drive_link)
 
 ## 開発環境
 - OS：Linux(CentOS)
