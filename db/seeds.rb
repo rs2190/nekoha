@@ -35,7 +35,7 @@ Post.destroy_all
 
 posts =
   Post.create!(
-      user_id: n + 1,
+      user_id: User.first.id,
       title: "うちの猫です。No.#{n + 1}",
       posts_comment: "かわいいです。No.#{n + 1}"
     )
@@ -63,38 +63,38 @@ end
 
     if n == 49
         Comment.create!(
-            user_id: n + 1,
-            post_id: 1,
+            user_id: User.first.id,
+            post_id: Post.first.id,
             comment_word: "ユーザー#{n + 1}です。かわいい猫の写真ですね！",
         )
 
         Favorite.create!(
-            user_id: n + 1,
-            post_id: 1
+            user_id: User.first.id,
+            post_id: Post.first.id,
         )
     elsif n == 50
 
         Comment.create!(
-            user_id: n,
-            post_id: 1,
+            user_id: User.first.id,
+            post_id: Post.first.id,
             comment_word: "ユーザー#{n}です。かわいい猫の写真ですね！",
         )
 
         Favorite.create!(
-            user_id: n,
-            post_id: 1
+            user_id: User.first.id,
+            post_id: Post.first.id,
         )
 
     else
         Comment.create!(
-            user_id: n + 1,
-            post_id: n + 2,
+            user_id: User.first.id,
+            post_id: Post.first.id,
             comment_word: "ユーザー#{n + 1}です。かわいい猫の写真ですね！",
         )
 
         Favorite.create!(
-            user_id: n + 1,
-            post_id: n + 2
+            user_id: User.first.id,
+            post_id: Post.first.id,
         )
     end
 
