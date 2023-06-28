@@ -37,35 +37,35 @@ class ApplicationController < ActionController::Base
 
   public
 
-  # userモデルを、ログインしたユーザーのid（current_user）を検索条件に取得する。
+  # userモデルからログインしたユーザーのid（current_user）を検索条件に取得する。
   def user_find
 
     User.find(current_user.id)
 
   end
 
-  # userモデルを、リクエストパラメータで送られてきたユーザーidを検索条件に取得する。
+  # userモデルからリクエストパラメータで送られてきたユーザーidを検索条件に取得する。
   def user_find_params_id
 
     User.find(params[:id])
 
   end
 
-  # postモデルを、リクエストパラメータで送られてきた投稿idを検索条件に取得する。
+  # postモデルからリクエストパラメータで送られてきた投稿idを検索条件に取得する。
   def post_find_params_id
 
     Post.find(params[:id])
 
   end
 
-  # postモデルを、リクエストパラメータで送られてきた投稿idを検索条件に取得する。
+  # commentモデルからリクエストパラメータで送られてきたコメントidを検索条件に取得する。
   def comment_find_params_id
 
     Comment.find(params[:id])
 
   end
 
-  # type、リクエストパラメータで送られてきた種類idを検索条件に取得する。
+  # typeモデルからリクエストパラメータで送られてきた種類idを検索条件に取得する。
   def type_find_params_id
 
     Type.find(params[:id])
@@ -86,7 +86,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-  # 名前取得
+  # userモデルから、ユーザーIDをパラメータに名前を取得する。
   def get_name(user_id)
 
     User.where(id: user_id).pluck(:name)[0]
