@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+  # devise利用の機能（ユーザ登録、ログイン認証など）が使われる前に、configure_permitted_parametersメソッドが実行
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # サインアウト後の遷移
