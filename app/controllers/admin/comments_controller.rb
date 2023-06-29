@@ -20,7 +20,7 @@ class Admin::CommentsController < ApplicationController
     comments.destroy
     # フラッシュメッセージ
     notice("コメントを削除しました。")
-    # 遷移先
+    # 処理後遷移先
     redirect_to admin_comments_path
 
   end
