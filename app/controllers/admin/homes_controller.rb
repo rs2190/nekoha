@@ -1,5 +1,6 @@
 class Admin::HomesController < ApplicationController
 
+  # コントローラーに設定して、ログイン済管理者のみにアクセスを許可する
   before_action :authenticate_admin!
 
   # トップページ
