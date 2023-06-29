@@ -6,7 +6,7 @@ class Admin::CommentsController < ApplicationController
   # コメント一覧
   def index
 
-    # コメント欄30件取得（降順）
+    # コメントモデルから1ページ分（データ30件）取得（降順）
     @comments = Comment.page(params[:page]).per(30).order(id: "DESC")
 
   end
