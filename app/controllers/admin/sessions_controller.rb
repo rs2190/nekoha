@@ -25,11 +25,12 @@ class Admin::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-    # サインイン後の遷移
+  # サインイン後の遷移
   def after_sign_in_path_for(resource)
 
-    # 投稿内容一覧(管理者トップページ)
+    # フラッシュメッセージ
     notice("お疲れ様です!　本日も一日頑張りましょう。")
+    # 投稿内容一覧(管理者トップページ)
     admin_home_top_path
 
   end
