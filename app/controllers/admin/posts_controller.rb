@@ -6,6 +6,7 @@ class Admin::PostsController < ApplicationController
   # 投稿内容詳細画面
   def show
 
+    # 1件投稿情報取得
     @post = post_find_params_id
 
   end
