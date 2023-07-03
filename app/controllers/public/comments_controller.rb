@@ -14,7 +14,7 @@ class Public::CommentsController < ApplicationController
     # コメント登録
     comment.save
 
-    # 遷移先
+    # 処理後遷移先
     redirect_to post_path(params[:post_id])
 
   end
@@ -22,6 +22,7 @@ class Public::CommentsController < ApplicationController
   # コメント編集画面
   def edit
 
+    # 1件コメント取得
     @comment = comment_find_params_id
 
   end
@@ -29,15 +30,22 @@ class Public::CommentsController < ApplicationController
   # コメント更新処理
   def update
 
+    # 1件コメント取得
     @comment = comment_find_params_id
 
+    # 更新時チェック
     if @comment.update(comment_params)
 
+      # 成功時処理
+      # フラッシュメッセージ
       notice("コメントを更新しました。")
+      # 処理後遷移先
       redirect_to post_path(@comment.post_id)
 
     else
 
+      # 失敗時処理
+      # 処理後遷移先
       render :edit
 
     end
@@ -47,10 +55,15 @@ class Public::CommentsController < ApplicationController
   # コメント削除処理
   def destroy
 
+    # 1件コメント取得
     @comment = comment_find_params_id
+    # 取得したコメントモデルから投稿IDを取得
     post_id = @comment.post_id
+    # 削除
     @comment.destroy
+    # フラッシュメッセージ
     notice("コメントを削除しました。")
+    # 処理後遷移先
     redirect_to post_path(post_id)
 
   end
