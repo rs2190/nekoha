@@ -63,7 +63,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # サインアップ
   def after_sign_up_path_for(resource)
 
+    # 管理者側とは、ログイン後の遷移先が違うので分けて実装。
+
+    # フラッシュメッセージ
     notice("登録完了しました。ようこそ!　ここがあなたのマイページです。")
+    # 処理後遷移先
     my_page_path
 
   end
