@@ -2,6 +2,7 @@
   <h4 class = "field m-3">投稿内容一覧</h4>
 </div>
 <div>
+  <!-- テーブルヘッダー部分 -->
   <table class = "table" >
     <thead class = "table-info">
       <tr>
@@ -14,21 +15,29 @@
       </tr>
     </thead>
     <tbody>
+      <!-- 投稿モデルから1ページ分（データ30件） -->
       <% @posts.each do |f| %>
       <tr>
+        <!-- 投稿ID -->
         <td><%= f.id %></td>
+        <!-- 投稿日時 -->
         <td><%= f.get_posted_date %></td>
+        <!-- タイトル -->
         <td>
+          <!-- 投稿内容の情報へのリンク -->
           <%= link_to admin_post_path(f.id) do %>
             <%= f.title %>
           <% end %>
         </td>
+        <!-- タグリスト（登録した分だけ出力する。） -->
         <td>
           <%= render 'layouts/admin_post_tag_list', tag_list: f.tag_list %>
         </td>
+        <!-- いいね数 -->
         <td>
           <i class="fas fa-heart"></i><%= f.favorites.count %> いいね
         </td>
+        <!-- コメント数 -->
         <td>
           コメント ： <%= f.comments.count %> 件
         </td>
@@ -37,6 +46,7 @@
     </tbody>
   </table>
 </div>
+<!-- ページリンク -->
 <div class = "d-flex justify-content-center">
   <%= paginate @posts %>
 </div>
