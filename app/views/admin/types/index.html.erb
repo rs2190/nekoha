@@ -5,6 +5,7 @@
     <% end %>
 </div>
 <div>
+  <!-- テーブルヘッダー部分 -->
   <table class = "table" >
     <thead class = "table-success">
       <tr>
@@ -15,15 +16,21 @@
       </tr>
     </thead>
     <tbody>
+      <!-- 種類モデルから1ページ分（データ30件） -->
       <% @types.each do |f| %>
       <tr>
+        <!-- 種類ID -->
         <td><%= f.id %></td>
+        <!-- 投稿日時 -->
         <td><%= f.get_posted_date %></td>
+        <!-- 種類名 -->
         <td>
-        <%= link_to admin_type_path(f.id) do %>
-          <%= f.name %>
-        <% end %>
+          <!-- 種類詳細画面へのリンク -->
+          <%= link_to admin_type_path(f.id) do %>
+            <%= f.name %>
+          <% end %>
         </td>
+        <!-- タグリスト（登録した分だけ出力する。） -->
         <td>
           <%= render 'layouts/admin_type_tag_list', tag_list: f.tag_list %>
         </td>
@@ -31,7 +38,8 @@
       <% end %>
     </tbody>
   </table>
-</diV>
+</div>
+<!-- ページリンク -->
 <div class = "d-flex justify-content-center">
   <%= paginate @types %>
 </div>
