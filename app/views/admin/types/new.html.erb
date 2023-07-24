@@ -2,31 +2,38 @@
   <h4 class = "field m-3">種類登録</h4>
 </div>
 <div>
+  <!-- 入力フォーム -->
   <%= form_with model: @type, url: admin_types_path, method: :post do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>
+          <!-- 投稿画像 -->
           <tr>
             <th>投稿画像</th>
             <td><%= f.file_field :image, accept: "image/*" %></td>
           </tr>
+          <!-- 種類名 -->
           <tr>
             <th>種 類 名</th>
             <td><%= f.text_field :name, :placeholder => "三毛猫", autofocus: true, class: 'form-control' %></td>
           </tr>
+          <!-- 体長 -->
           <tr>
             <th>体　　長</th>
             <td><%= f.text_field :body_length, :placeholder => "26~28cm" , class: 'form-control' %></td>
           </tr>
+          <!-- 原産国 -->
           <tr>
             <th>原 産 国</th>
             <td><%= f.text_field :country, :placeholder => "日本" , class: 'form-control' %></td>
           </tr>
+          <!-- タグリスト（半角カンマで区切って登録） -->
           <tr>
             <th>タグリスト</th>
             <td><%= f.text_field :tag_list, :placeholder => "ペット,三毛猫" , value: @type.tag_list.join(','), class: 'form-control' %></td>
           </tr>
+          <!-- 詳細-->
           <tr>
             <th>詳　　細</th>
             <td><%= f.text_area :detail, :placeholder => "特徴や性格などを入力。" , size: "50x10", class: 'form-control' %></td>
@@ -34,6 +41,7 @@
           <tr>
             <th></th>
             <td>
+              <!-- 登録 -->
               <%= f.submit '登録', class:"btn btn-success btn-block" %>
             </td>
         </tr>
