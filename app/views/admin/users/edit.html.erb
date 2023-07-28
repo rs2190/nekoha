@@ -2,37 +2,46 @@
   <div class = "offset-1 col-7">
   <h4>ユーザー編集</h4>
   <%= form_with model: @user, url: admin_user_path(@user.id), method: :patch do |f| %>
+  <!-- エラーメッセージ -->
   <%= render 'layouts/error_messages', model: f.object %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>
+          <!-- ユーザーID -->
           <tr>
             <th>ユーザーID</th>
             <td><%= @user.id %></td>
           </tr>
+          <!-- ユーザー名 -->
           <tr>
             <th>ユーザー名</th>
             <td><%= f.text_field :name, :placeholder => "ネコハ太郎", autofocus: true, maxlength: "20" %></td>
           </tr>
+          <!-- 性別 -->
           <tr>
             <th>性　　別</th>
             <td><%= f.select :sex, User.sexes_i18n.invert %></td>
           </tr>
+          <!-- メールアドレス -->
           <tr>
             <th>メールアドレス</th>
             <td><%= f.email_field :email, :placeholder => "sample@example.com" %></td>
           </tr>
+          <!-- 自己紹介文 -->
           <tr>
             <th>自己紹介文</th>
             <td><%= f.text_area :self_introduction, :placeholder => "よろしくお願いいたします。" , size: "50x10" %></td>
           </tr>
+          <!-- ステータス　ラジオボタンで変更できる。-->
           <tr>
             <th>ステータス</th>
             <td colspan="2">
+              <!-- 有効 -->
               <div>
                 <%= f.radio_button :is_deleted, false %>
                 <%= f.label :is_deleted, '有効' %>
               </div>
+              <!-- 退会 -->
               <div>
                 <%= f.radio_button :is_deleted, true %>
                 <%= f.label :is_deleted, '退会' %>
@@ -43,6 +52,7 @@
             <th></th>
             <td>
               <div class="d-flex justify-content-lg-between">
+                <!-- 更新ボタン -->
                 <%= f.submit '更新', class:"btn btn-success btn-block" %>
               </div>
             </td>
