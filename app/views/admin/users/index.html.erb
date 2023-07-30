@@ -2,6 +2,7 @@
   <h4 class = "field m-3">ユーザー一覧</h4>
 </div>
 <div>
+  <!-- テーブルヘッダー部分 -->
   <table class = "table" >
     <thead class = "table-warning">
       <tr>
@@ -11,24 +12,32 @@
       </tr>
     </thead>
     <tbody>
+      <!-- ユーザーモデルから1ページ分（データ30件） -->
       <% @users.each do |f| %>
       <tr>
+        <!-- ユーザーID -->
         <td><%= f.id %></td>
         <td>
+          <!-- ユーザー詳細画面へのリンク -->
           <%= link_to admin_user_path(f.id) do %>
+            <!-- ユーザー名 -->
             <%= f.name %>
           <% end %>
         </td>
+        <!-- ユーザーのステータス -->
         <% if f.is_deleted %>
+          <!-- 退会 -->
           <td class = "text-danger"><p class="font-weight-bold">退会</p></td>
         <% else %>
+          <!-- 有効（具グイン可能） -->
           <td class = "text-success"><p class="font-weight-bold">有効</p></td>
         <% end %>
       </tr>
       <% end %>
     </tbody>
   </table>
-</diV>
+</div>
+<!-- ページリンク -->
 <div class = "d-flex justify-content-center">
   <%= paginate @users %>
 </div>
