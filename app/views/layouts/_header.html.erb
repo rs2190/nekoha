@@ -1,15 +1,19 @@
+<!-- ヘッダー部分 -->
    <header class ="header bg-secondary">
       <nav class="navbar navbar-expand-lg border border-bottom-dark">
         <div class="container">
           <nav class="nav navbar-nav navbar-left">
+            <!-- ロゴ（トップページへ遷移する。） -->
             <%= link_to root_path do %>
               <%= image_tag 'logo.png' ,:width => '120', :height => '120' %>
             <% end %>
           </nav>
           <nav class="nav navbar-nav navbar-left">
+            <!-- ログイン済みかつ退会していないか -->
             <% if user_signed_in? && !current_user.is_deleted %>
               <li>
                 <div class="nav navbar-right text-light">
+                  <!-- ユーザー名 -->
                   ユーザー名：<%= current_user.name %>
                 </div>
               </li>
@@ -17,80 +21,97 @@
           </nav>
           <nav>
              <ul class="nav navbar-right">
+               <!-- ログイン済みかつ退会していないか -->
               <% if user_signed_in? && !current_user.is_deleted %>
+                <!-- 投稿内容一覧 -->
                 <li>
                   <%= link_to posts_path, class:"nav-link text-light" do %>
                     <i class="fas fa-search"></i>
                   <% end %>
                 </li>
+                <!-- アバウトページ -->
                 <li>
                   <%= link_to about_path, class:"nav-link text-light bg-dark" do %>
                     About
                   <% end %>
                 </li>
+                <!-- マイページ -->
                 <li>
                   <%= link_to my_page_path, class:"nav-link text-light bg-dark" do %>
                     マイページ
                   <% end %>
                 </li>
+                <!-- ログアウト -->
                 <li>
                   <%= link_to destroy_user_session_path, method: :delete, class:"nav-link text-light bg-dark" do %>
                     ログアウト
                   <% end %>
                 </li>
+                <!-- ねこずかん -->
                 <li>
                   <%= link_to types_path, class:"nav-link text-light bg-dark" do %>
                     ねこずかん
                   <% end %>
                 </li>
+              <!-- 管理者側 -->
               <% elsif admin_signed_in? %>
+                <!-- ユーザー一覧 -->
                 <li>
                   <%= link_to admin_users_path, class:"nav-link text-light bg-dark" do %>
                     ユーザー一覧
                   <% end %>
                 </li>
+                <!-- コメント一覧 -->
                 <li>
                   <%= link_to admin_comments_path, class:"nav-link text-light bg-dark" do %>
                     コメント一覧
                   <% end %>
                 </li>
+                <!-- 投稿内容一覧 -->
                 <li>
                   <%= link_to admin_home_top_path, class:"nav-link text-light bg-dark" do %>
                     投稿内容一覧
                   <% end %>
                 </li>
+                <!-- ログアウト -->
                 <li>
                 <%= link_to destroy_admin_session_path, method: :delete, class:"nav-link text-light bg-dark" do %>
                   ログアウト
                 <% end %>
+                <!-- ねこずかん -->
                 <li>
                   <%= link_to admin_types_path, class:"nav-link text-light bg-dark" do %>
                     ねこずかん
                   <% end %>
                 </li>
               </li>
+              <!-- ログインしていない場合 -->
               <% else %>
+                <!-- 投稿内容一覧 -->
                 <li>
                   <%= link_to posts_path, class:"nav-link text-light" do %>
                     <i class="fas fa-search"></i>
                   <% end %>
                 </li>
-                </li>
+                <!-- アバウトページ -->
                 <li>
                   <%= link_to about_path, class:"nav-link text-light bg-dark" do %>
                     About
                   <% end %>
                 </li>
+                <!-- 新規登録画面 -->
                 <li>
                   <%= link_to new_user_registration_path, class:"nav-link text-light bg-dark" do %>
                     新規登録
                   <% end %>
                 </li>
+                <!-- ログイン画像-->
                 <li>
                   <%= link_to new_user_session_path, class:"nav-link text-light bg-dark" do %>
                     ログイン
                   <% end %>
                 </li>
+                <!-- ねこずかん-->
                 <li>
                   <%= link_to types_path, class:"nav-link text-light bg-dark" do %>
                     ねこずかん
