@@ -1,5 +1,7 @@
+<!-- 投稿時に、登録したタグの分だけ、ループする。 -->
 <% tag_list.each do |tag|%>
   <div class="btn btn-primary">
+    <!-- タグ検索を行うためにリンク化。typeモデルを検索 -->
     <%= link_to tag, types_path(tag_name: tag), class: "text-white"  %>
   </div>
 <% end %>
