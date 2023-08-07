@@ -2,11 +2,14 @@
   <%= render 'layouts/users_sidebar' %>
   <div class = "offset-1 col-7">
   <h4>コメント編集</h4>
+
+  <!--　入力フォーム  -->
   <%= form_with model: @comment, url: post_comment_path(@comment.id), method: :patch do |f| %>
    <%= render 'layouts/error_messages', model: f.object %>
     <div class = "field my-2 offset-1">
-      <table class = "table table-borderless" >
+      <table class = "table tabnle-borderless" >
         <tbody>
+          <!--　コメント内容  -->
           <tr>
             <th>
               コメント内容
@@ -20,6 +23,7 @@
           <tr>
             <td>
               <div class="d-flex justify-content-end">
+                <!--　変更ボタン -->
                 <%= f.submit "変更", class:"btn btn-success" %>
               </div>
             </td>
