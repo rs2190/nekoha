@@ -10,12 +10,15 @@
   	</div>
   	<h4>新着投稿</h4>
       <div class ="d-flex justify-content-between flex-wrap">
+        <!-- 投稿モデルから1ページ分（データ4件） -->
         <% @posts.each do |f| %>
           <div class="posts offset-1">
+             <!-- 投稿詳細画面へ遷移 -->
             <%= link_to post_path(f.id) do %>
               <%= image_tag f.get_post_image_wide_height(200,150) %><br>
             <% end %>
             <%= f.title %><br>
+            <!-- ユーザー詳細画面へ遷移 -->
            <%= link_to user_path(f.user_id) do %>
             <%= f.user.name %>
           <% end %>
@@ -24,6 +27,7 @@
 　　　　</div>
       </div>
       <div class ="offset-1 d-flex justify-content-end">
+        <!-- 投稿内容一覧画面へ遷移 -->
   	     <%= link_to "全投稿を見る＞", posts_path %>
   	 </div>
     </div>
