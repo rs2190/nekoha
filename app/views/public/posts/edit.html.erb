@@ -2,23 +2,28 @@
   <%= render 'layouts/users_sidebar' %>
   <div class = "offset-1 col-7">
   <h4>投稿内容編集</h4>
+  <!--　入力フォーム  -->
   <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
    <%= render 'layouts/error_messages', model: f.object %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>
+          <!--　投稿画像  -->
           <tr>
             <th>投稿画像</th>
             <td><%= f.file_field :image, accept: "image/*" %></td>
           </tr>
+          <!--　タイトル名  -->
           <tr>
             <th>タイトル名</th>
             <td><%= f.text_field :title, :placeholder => "私の家の猫", autofocus: true, class: 'form-control', maxlength: "20" %></td>
           </tr>
+          <!--　タグリスト  -->
           <tr>
             <th>タグリスト</th>
             <td><%= f.text_field :tag_list, :placeholder => "ペット,三毛猫" , value: @post.tag_list.join(','), class: 'form-control' %></td>
           </tr>
+          <!--　投稿コメント  -->
           <tr>
             <th>投稿コメント</th>
             <td><%= f.text_area :posts_comment, :placeholder => "名前はミケです。オスの3歳です。" , size: "50x10", class: 'form-control' %></td>
@@ -27,7 +32,9 @@
             <th></th>
             <td>
               <div class="d-flex justify-content-lg-between">
+                <!--　変更ボタン -->
                 <%= f.submit "変更", class:"btn btn-success" %>
+                <!--　削除ボタン  -->
                 <%= link_to "削除", post_path(@post.id), method: :delete , class: "btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？" %>
               </div>
             </td>

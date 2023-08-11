@@ -1,14 +1,19 @@
 <div class = "d-flex justify-content-between">
   <h4 class = "gray field m-3">投稿内容一覧</h4>
   <div class="search_form">
+    <!-- 検索フォーム -->
     <%= form_with url: posts_path, local: true, method: :get do |s| %>
+    <!-- タグ -->
     　<%= select_tag 'model', options_for_select({ "投稿内容で検索" => "post", "投稿ユーザー名で検索" => "user" }) %>
+    　<!-- 検索用テキストワード -->
       <%= s.text_field :word %>
+      <!-- 検索ボタン -->
       <%= s.submit "検索", class: "btn btn-primary",:placeholder => "Search" %>
     <% end %>
   </div>
 </div>
 <div>
+  <!-- テーブルヘッダー部分 -->
   <table class = "table" >
     <thead class = "table-info">
       <tr>
@@ -20,18 +25,26 @@
       </tr>
     </thead>
     <tbody>
+      <!-- 投稿モデルから1ページ分（データ10件） -->
       <% @posts.each do |f| %>
       <tr>
+        <!-- 投稿画像 -->
         <td><%= image_tag f.get_image %></td>
+        <!-- 投稿画像 -->
         <td>
+          <!-- タイトル名 -->
+          <!-- 投稿詳細画面へ遷移 -->
           <%= link_to post_path(f.id) do %>
             <%= f.title %>
           <% end %>
         </td>
+        <!-- タグリスト（登録した分だけ出力する。） -->
         <td><%= render 'layouts/post_tag_list', tag_list: f.tag_list %></td>
+        <!-- いいね数 -->
         <td>
           <i class="fas fa-heart"></i><%= f.favorites.count %> いいね
         </td>
+        <!-- コメント数 -->
         <td>
           コメント ： <%= f.comments.count %> 件
         </td>
@@ -40,6 +53,7 @@
     </tbody>
   </table>
   <div class = "d-flex justify-content-center">
+    <!-- ページリンク -->
     <%= paginate @posts %>
   </div>
 </div>

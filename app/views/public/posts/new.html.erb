@@ -2,29 +2,36 @@
   <%= render 'layouts/users_sidebar' %>
   <div class = "offset-1 col-7">
   <h4>投稿内容登録</h4>
+  <!--　入力フォーム  -->
   <%= form_with model: @post, url: posts_path, method: :post do |f| %>
+  <!--　エラーメッセージ  -->
    <%= render 'layouts/error_messages', model: f.object %>
     <div class = "field my-2 offset-1">
       <table class = "table table-borderless" >
         <tbody>
+          <!--　投稿画像  -->
           <tr>
             <th>投稿画像</th>
             <td><%= f.file_field :image, accept: "image/*" %></td>
           </tr>
+          <!--　タイトル名  -->
           <tr>
             <th>タイトル名</th>
             <td><%= f.text_field :title, :placeholder => "私の家の猫", autofocus: true, class: 'form-control', maxlength: "20" %></td>
           </tr>
+          <!--　タグリスト  -->
           <tr>
             <th>タグリスト</th>
             <td><%= f.text_field :tag_list, :placeholder => "ペット,三毛猫" , value: @post.tag_list.join(','), class: 'form-control' %></td>
           </tr>
+          <!--　投稿コメント  -->
           <tr>
             <th>投稿コメント</th>
             <td><%= f.text_area :posts_comment, :placeholder => "名前はミケです。オスの3歳です。" , size: "50x10", class: 'form-control' %></td>
           </tr>
           <tr>
             <th></th>
+            <!--　投稿する  -->
             <td>
               <%= f.submit '投稿する', class:"btn btn-success btn-block" %>
             </td>
