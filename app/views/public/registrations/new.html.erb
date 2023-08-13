@@ -1,18 +1,19 @@
 <h2>ユーザー新規登録</h2>
-
+<!--　入力フォーム  -->
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <!--　エラーメッセージ  -->
   <%= render 'layouts/error_messages', model: f.object %>
-
+  <!--　入力フォーム(20文字)  -->
   <div class="field">
     <strong><%= f.label :name, "ユーザー名（ニックネーム）" %></strong></br>
     <%= f.text_field :name, :placeholder => "ねこは太郎", maxlength: "20"  %>
   </div>
-
+  <!--　メールアドレス  -->
   <div class="field">
     <strong><%= f.label :email, "メールアドレス" %></strong></br>
     <%= f.email_field :email, :placeholder => "nekoha@example.co.jp" %>
   </div>
-
+  <!--　自己紹介文  -->
   <div class="field">
     <strong><%= f.label :self_introduction, "自己紹介文" %></strong></br>
     <%= f.text_field :self_introduction, :placeholder => "よろしくお願いします。", value: "よろしくお願いします。" %>
@@ -26,17 +27,21 @@
     <% end %>
     </strong>
     </br>
+    <!--　パスワード  -->
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
+    <!--　パスワード (確認用)  -->
     <strong><%= f.label :password_confirmation, "パスワード (確認用)"  %></strong></br>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
   <br/>
   <div class="actions">
+    <!--　新規登録ボタン　 -->
     <%= f.submit "新規登録", class: "btn btn-success" %>
   </div>
 <% end %>
 <br/>
+<!--　render ショートカット　 -->
 <%= render "public/shared/links" %>
