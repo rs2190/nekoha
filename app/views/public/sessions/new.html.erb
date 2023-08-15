@@ -1,6 +1,7 @@
 <h2>ログイン</h2>
-
+<!--　入力フォーム  -->
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <!--　メールアドレス  -->
   <div class="field">
     <strong>
     <%= f.label :email,"メールアドレス" %></br>
@@ -9,6 +10,7 @@
   </div>
 
   <div class="field">
+    <!--　パスワード  -->
     <strong>
       <%= f.label :password, "パスワード" %>
       <% if @minimum_password_length %>
@@ -19,9 +21,11 @@
   </div>
   </br>
   <div class="actions">
+    <!--　ログイン-->
     <%= f.submit "ログイン", class: "btn btn-primary"  %></br></br>
+    <!--　ゲストログイン-->
     <%= link_to 'ゲストログイン', guest_sign_in_path, method: :post, class: "login btn btn-primary" %>
   </div>
 <% end %>
-
+<!--　render ショートカット　 -->
 <%= render "public/shared/links" %>
