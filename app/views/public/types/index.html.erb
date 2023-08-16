@@ -1,13 +1,17 @@
 <div class = "d-flex justify-content-between">
   <h4 class = "field m-3">ねこずかん</h4>
     <div class="search_form">
+    <!-- 検索フォーム -->
     <%= form_with url: types_path, local: true, method: :get do |s| %>
+      <!-- 検索用テキストワード -->
       <%= s.text_field :word %>
+      <!-- 検索ボタン -->
       <%= s.submit "検索", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
 <div>
+  <!-- テーブルヘッダー部分 -->
   <table class = "table" >
     <thead class = "table-success">
       <tr>
@@ -17,14 +21,18 @@
       </tr>
     </thead>
     <tbody>
+      <!-- 種類モデルから1ページ分（データ10件） -->
       <% @types.each do |f| %>
       <tr>
+        <!-- 投稿画像 -->
         <td><%= image_tag f.get_image(60) %></td>
         <td>
+        <!-- 種類名 -->
         <%= link_to type_path(f.id) do %>
           <%= f.name %>
         <% end %>
         </td>
+        <!-- タグリスト（登録した分だけ出力する。） -->
         <td>
           <%= render 'layouts/type_tag_list', tag_list: f.tag_list %>
         </td>
@@ -33,6 +41,7 @@
     </tbody>
   </table>
 </div>
+<!-- ページリンク -->
 <div class = "d-flex justify-content-center">
   <%= paginate @types %>
 </div>

@@ -1,26 +1,31 @@
 <div class = "row">
   <div class = "col-md-6 field my-2 offset-1">
     <div class = "items_image offset-1">
+      <!-- 種類名 -->
       <h4><%= @type.name %></h4>
+      <!-- 投稿画像 -->
       <%= image_tag @type.get_image(300) %>
     </div>
     <div class = "main my-3 offset-1">
+      <!-- 体長 -->
       <div class="d-flex justify-content-between">
         <strong class>体　　　長</strong>
         <%= @type.body_length %>
       </div>
+      <!-- 原産国 -->
       <div class="d-flex justify-content-between my-4">
         <strong class>原　産　国</strong>
         <%= @type.country %>
       </div>
+      <!-- タグリスト（登録した分だけ出力する。） -->
       <div class="col-md d-flex justify-content-start">
         <table class = "table table-borderless">
           <td><%= render 'layouts/type_tag_list', tag_list: @type.tag_list %></td>
         </table>
       </div>
+      <!-- 詳細 -->
       <div class="d-flex justify-content-between my-4">
         <strong class>詳　　　細</strong>
-        <%= @type.country %>
       </div>
       <div class="col-md d-flex justify-content-between my-4">
         <%= @type.detail %>
