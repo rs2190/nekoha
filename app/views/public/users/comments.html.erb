@@ -3,6 +3,7 @@
      <%= render 'layouts/users_sidebar' %>
   <% end %>
   <div class = "field ml-5">
+    <!-- ユーザー名出力 -->
     <h4 class = "field m-3"><%= @user_name %> さんのコメント一覧</h4>
     <table class = "table" >
       <thead class = "table-primary">
@@ -14,25 +15,34 @@
         </tr>
       </thead>
       <tbody>
+        <!-- コメントモデルから1ページ分（データ10件） -->
         <% @comments.each do |f| %>
         <tr>
+          <!-- コメントした投稿の詳細画面へ遷移 -->
           <td>
             <%= link_to post_path(f.post_id) do %>
               <%= f.get_post_title(f.post_id) %>
             <% end %>
           </td>
+          <!-- コメントした投稿のユーザーの詳細画面へ遷移 -->
           <td>
             <%= link_to user_path(f.get_post_user_id(f.post_id)) do %>
               <%= f.get_post_user_name(f.post_id) %>
             <% end %>
           </td>
+          <!-- コメント内容 -->
           <td>
             <%= f.comment_word %>
           </td>
+          <!--  -->
           <td>
+            <!-- ログイン済みかつ退会していないか -->
             <% if user_signed_in? && !current_user.is_deleted %>
+              <!-- コメント主の場合（コメント.ユーザーID = ログインユーザー.ID ） -->
               <% if f.user_id == current_user.id %>
+                <!-- 編集ボタン -->
                 <%= link_to "編集", edit_post_comment_path(f.post_id,f.id), class:"btn btn-success" %>
+                <!-- 削除ボタン -->
                 <%= link_to "削除", post_comment_path(f.post_id,f.id), method: :delete, class:"btn btn-danger", "data-confirm" => "OKボタンを押すと削除します。本当に削除しますか？"  %>
               <% end %>
             <% end %>
@@ -41,6 +51,7 @@
         <% end %>
       </tbody>
     </table>
+    <!-- ページリンク -->
     <%= paginate @comments %>
   </div>
 </div>
