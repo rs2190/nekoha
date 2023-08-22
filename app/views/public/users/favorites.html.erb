@@ -1,9 +1,13 @@
 <div class = "row">
+  <!--　サイドバー  -->
+  <!-- ログイン済みかつ退会していないか -->
   <% if user_signed_in? && !current_user.is_deleted %>
      <%= render 'layouts/users_sidebar' %>
   <% end %>
   <div class = "field ml-5">
+    <!--　ユーザー名表示  -->
     <h4 class = "field m-3"><%= @user_name %> さんのいいね一覧</h4>
+    <!-- テーブルヘッダー部分 -->
     <table class = "table" >
       <thead class = "table-danger">
         <tr>
@@ -12,14 +16,19 @@
         </tr>
       </thead>
       <tbody>
+        <!-- いいねモデルから1ページ分（データ10件） -->
         <% @favorite.each do |f| %>
         <tr>
+          <!-- タイトル -->
           <td>
+            <!-- 投稿内容詳細画面へ遷移 -->
             <%= link_to post_path(f.post_id) do %>
               <%= f.get_post_title(f.post_id) %>
             <% end %>
           </td>
+          <!-- ユーザー名 -->
           <td>
+            <!-- ユーザー詳細画面へ遷移 -->
             <%= link_to user_path(f.get_post_user_id(f.post_id)) do %>
               <%= f.get_post_user_name(f.post_id) %>
             <% end %>
@@ -28,6 +37,7 @@
         <% end %>
       </tbody>
     </table>
+    <!-- ページリンク -->
     <%= paginate @favorite %>
   </div>
 </div>
