@@ -4,6 +4,7 @@
   <% end %>
   <div class = "offset-1">
     <h4>マイページ</h4>
+    <!-- プロフィール画像 -->
     <div class = "items_image offset-1">
       <%= image_tag @user.get_profile_image(100) %>
     </div>
@@ -12,26 +13,32 @@
   <div class = "field my-2 offset-1">
     <table class = "table table-borderless" >
       <tbody>
+        <!-- ユーザー名 -->
         <tr>
           <th>ユーザー名</th>
           <td><%= @user.name %></td>
         </tr>
+        <!-- 性別 -->
         <tr>
           <th>性　　別</th>
           <td><%= User.sexes_i18n[@user.sex] %></td>
         </tr>
+        <!-- メールアドレス -->
         <tr>
           <th>メールアドレス</th>
           <td><%= @user.email %></td>
         </tr>
+        <!-- 自己紹介文 -->
         <tr>
           <th>自己紹介文</th>
           <td><%= @user.self_introduction %></td>
         </tr>
       </tbody>
     </table>
+    <!-- ユーザー.ID = ログインユーザー.ID ） -->
     <% if @user.id == current_user.id %>
-     <div>
+    <div>
+      <!-- 編集ボタン -->
       <%= link_to "編集", edit_information_users_path, class:"btn btn-success btn-block" %>
     </div>
     <% end %>
