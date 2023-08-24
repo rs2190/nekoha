@@ -1,8 +1,11 @@
 <div class = "row">
+  <!-- サイドバー -->
+  <!-- ログイン済みかつ退会していないか -->
   <% if user_signed_in? && !current_user.is_deleted %>
      <%= render 'layouts/users_sidebar' %>
   <% end %>
   <div class = "field ml-5">
+    <!-- ユーザー名出力 -->
     <h4 class = "field m-3"><%= @user_name %> さんの投稿内容一覧</h4>
     <table class = "table" >
       <thead class = "table-info">
@@ -13,17 +16,24 @@
         </tr>
       </thead>
       <tbody>
+        <!-- 投稿モデルから1ページ分（データ10件） -->
         <% @posts.each do |f| %>
         <tr>
+          <!-- 投稿日時 -->
           <td><%= f.get_posted_date %></td>
+          <!-- タイトル -->
           <td>
+            <!-- 投稿詳細画面へ遷移 -->
             <%= link_to post_path(f.id) do %>
               <%= f.title %>
             <% end %>
           </td>
           <td>
+            <!-- ログイン済みかつ退会していないか -->
             <% if user_signed_in? && !current_user.is_deleted %>
+              <!-- ユーザー.ID = ログインユーザー.ID -->
               <% if f.user_id == current_user.id %>
+                <!-- 編集ボタン -->
                 <%= link_to "編集", edit_post_path(f.id), method: :get , class: "btn btn-success" %>
               <% end %>
           <% end %>
@@ -32,6 +42,7 @@
         <% end %>
       </tbody>
     </table>
+    <!-- ページリンク -->
     <%= paginate @posts %>
   </div>
 </div>
