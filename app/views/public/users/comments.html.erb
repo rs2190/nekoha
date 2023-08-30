@@ -1,4 +1,6 @@
 <div class = "row">
+  <!-- サイドバー -->
+  <!-- ログイン済みかつ退会していないか -->
   <% if user_signed_in? && !current_user.is_deleted %>
      <%= render 'layouts/users_sidebar' %>
   <% end %>
@@ -34,7 +36,6 @@
           <td>
             <%= f.comment_word %>
           </td>
-          <!--  -->
           <td>
             <!-- ログイン済みかつ退会していないか -->
             <% if user_signed_in? && !current_user.is_deleted %>
