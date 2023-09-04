@@ -14,14 +14,17 @@ class Post < ApplicationRecord
   # acts_as_taggable_on(tagsカラム)を追加して、タグリストを登録出来るようにする。
   acts_as_taggable_on :tags
 
-  # バリデーション
+  # バリデーション(入力必須のバリデーションをまとめる。)
   with_options presence: true do
 
+    # タイトル
     validates :title
+    # 投稿コメント
     validates :posts_comment
 
   end
 
+  # 画面の画像ファイル表示用メソッド（第1引数：幅　第2引数:高さ）
   def get_post_image_wide_height(width, height)
 
     # 画像を取得出来るか
@@ -30,7 +33,7 @@ class Post < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
-  # プロフィール画像を取得する。
+  # プロフィール画像を取得する。（第1引数：サイズ）
   def get_show_post_image(size)
 
     # 画像を取得出来るか
@@ -50,7 +53,7 @@ class Post < ApplicationRecord
 
   # 投稿画像が存在しない場合、画像が取得する。
   def upload_default_image
-    # 画像を取得して、
+    # ディレクトリから画像を取得する。
     file_path = Rails.root.join('app/assets/images/no_image.jpg')
     image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
@@ -58,6 +61,7 @@ class Post < ApplicationRecord
   # 投稿日時
   def get_posted_date
 
+    # 日時フォーマットを修正
     created_at.strftime('%Y/%m/%d %H:%M')
 
   end
@@ -65,6 +69,7 @@ class Post < ApplicationRecord
   # いいね判定
   def favorited?(user)
 
+    # ユーザーIDで検索して、いいねテーブルにあるかチェックする。
     favorites.where(user_id: user.id).exists?
 
   end
