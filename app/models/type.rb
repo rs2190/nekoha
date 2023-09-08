@@ -28,9 +28,9 @@ class Type < ApplicationRecord
     image.variant(resize: size).processed
   end
 
-  # 投稿画像が存在しない場合、画像が取得する。
+  # 投稿画像が存在しない場合、イメージなしの画像を取得する。
   def upload_default_image
-    # 画像を取得して、画像なしの
+    # 画像なしの場合のjpeg画像を取得する。
     file_path = Rails.root.join('app/assets/images/no_image.jpg')
     image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
   end
