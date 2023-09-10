@@ -8,6 +8,7 @@ class Comment < ApplicationRecord
   # バリデーション(入力必須のバリデーションをまとめる。)
   with_options presence: true do
 
+    # コメント内容
     validates :comment_word
 
   end
@@ -20,7 +21,7 @@ class Comment < ApplicationRecord
 
   end
 
-    # コメント日時
+  # コメント省略
   def get_comment_word
 
     # 10文字以上の場合
@@ -28,6 +29,7 @@ class Comment < ApplicationRecord
 
       # 最初の10文字取得
       word = comment_word.slice(0..10)
+      # コメントを省略して出力する。（最初の10文字 + "..."）
       word + "..."
 
     else
