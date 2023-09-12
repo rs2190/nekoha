@@ -40,7 +40,7 @@ class Comment < ApplicationRecord
 
   end
 
-  # タイトル取得
+  # タイトル取得（第一引数：投稿ID）
   def get_post_title(post_id)
 
     # 投稿IDで検索して、0番目のタイトルを取得する。
@@ -48,7 +48,7 @@ class Comment < ApplicationRecord
 
   end
 
-  # 投稿者ID取得
+  # 投稿者ID取得（第一引数：投稿ID）
   def get_post_user_id(post_id)
 
     # 投稿IDで検索して、0番目のユーザーIDを取得する。
