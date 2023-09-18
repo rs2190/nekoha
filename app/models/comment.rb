@@ -56,7 +56,7 @@ class Comment < ApplicationRecord
 
   end
 
-  # 投稿ユーザーの取得
+  # 投稿ユーザーの取得（第一引数：投稿ID）
   def get_post_user_name(post_id)
 
     # 投稿モデルのユーザーIDを取得。
