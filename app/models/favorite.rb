@@ -5,7 +5,7 @@ class Favorite < ApplicationRecord
   # favorite と posts の 1 : N のアソシエーション実装
   belongs_to :post
 
-  # タイトル取得
+  # タイトル取得（第一引数：投稿ID）
   def get_post_title(post_id)
 
     # 投稿IDで検索して、0番目のタイトルを取得する。
@@ -13,7 +13,7 @@ class Favorite < ApplicationRecord
 
   end
 
-  # 投稿者ID取得
+  # 投稿者ID取得（第一引数：投稿ID）
   def get_post_user_id(post_id)
 
     # 投稿IDで検索して、0番目の投稿者IDを取得する。
@@ -21,7 +21,7 @@ class Favorite < ApplicationRecord
 
   end
 
-  # 投稿ユーザー取得
+  # 投稿ユーザー取得（第一引数：投稿ID）
   def get_post_user_name(post_id)
 
     # 投稿モデルのユーザーIDを取得。
