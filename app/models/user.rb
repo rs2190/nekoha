@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  
+
   # device 使用
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -32,7 +32,7 @@ class User < ApplicationRecord
   # ActiveStorage(imageカラム)を追加して、画像を投稿出来るようにする。
   has_one_attached :image
 
-  # 性別のenum（0：その他、1：男、2：）
+  # 性別のenum（0：その他、1：男、2：女）
   enum sex: { another: 0, male: 1, famale: 2 }
 
   # ゲストログイン時のデータを作成
