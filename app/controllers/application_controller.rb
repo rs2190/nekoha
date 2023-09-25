@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # protected メソッド
   protected
 
   # deviseのストロングパラメータ。
@@ -36,6 +37,7 @@ class ApplicationController < ActionController::Base
 
   end
 
+  # public メソッド
   public
 
   # userモデルからログインしたユーザーのid（current_user）を検索条件に取得する。
