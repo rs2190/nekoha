@@ -43,6 +43,7 @@ class ApplicationController < ActionController::Base
   # userモデルからログインしたユーザーのid（current_user）を検索条件に取得する。
   def user_find
 
+    # ログインしたユーザーのid（current_user）で検索。
     User.find(current_user.id)
 
   end
@@ -50,6 +51,7 @@ class ApplicationController < ActionController::Base
   # userモデルからリクエストパラメータで送られてきたユーザーidを検索条件に取得する。
   def user_find_params_id
 
+    # リクエストパラメータで送られてきたユーザーidで検索。
     User.find(params[:id])
 
   end
@@ -57,6 +59,7 @@ class ApplicationController < ActionController::Base
   # postモデルからリクエストパラメータで送られてきた投稿idを検索条件に取得する。
   def post_find_params_id
 
+    # リクエストパラメータで送られてきた投稿idで検索。
     Post.find(params[:id])
 
   end
@@ -64,6 +67,7 @@ class ApplicationController < ActionController::Base
   # commentモデルからリクエストパラメータで送られてきたコメントidを検索条件に取得する。
   def comment_find_params_id
 
+    # リクエストパラメータで送られてきたコメントidで検索。
     Comment.find(params[:id])
 
   end
@@ -71,6 +75,7 @@ class ApplicationController < ActionController::Base
   # typeモデルからリクエストパラメータで送られてきた種類idを検索条件に取得する。
   def type_find_params_id
 
+    # リクエストパラメータで送られてきた種類idで検索。
     Type.find(params[:id])
 
   end
@@ -92,6 +97,7 @@ class ApplicationController < ActionController::Base
   # userモデルから、ユーザーIDをパラメータに名前を取得する。
   def get_name(user_id)
 
+    #ユーザーIDをパラメータに名前を取得する。
     User.where(id: user_id).pluck(:name)[0]
 
   end
