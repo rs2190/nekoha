@@ -16,7 +16,6 @@ class Public::PostsController < ApplicationController
       @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10).order(id: "DESC")
 
     # キーワード検索
-
     # 「投稿内容で検索」タグで検索した場合
     elsif params["model"]  == 'post'
 
@@ -135,7 +134,8 @@ class Public::PostsController < ApplicationController
 
   # ストロングパラメータ
   def post_params
-
+    
+    # postモデルのカラム
     params.require(:post).permit(:image, :title, :posts_comment, :tag_list)
 
   end
