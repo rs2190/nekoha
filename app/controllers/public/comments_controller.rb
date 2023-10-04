@@ -70,7 +70,10 @@ class Public::CommentsController < ApplicationController
 
   # ストロングパラメータ
   def comment_params
+
+    # commentモデルのカラム
     params.require(:comment).permit(:comment_word)
+
   end
 
 end
