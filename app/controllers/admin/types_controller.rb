@@ -32,6 +32,7 @@ class Admin::TypesController < ApplicationController
       notice("ねこずかんを追加しました。")
       # 処理後遷移先
       redirect_to admin_type_path(@type.id)
+
     else
 
       # 失敗時処理
@@ -63,7 +64,7 @@ class Admin::TypesController < ApplicationController
     # 1件種類情報取得
     @type = type_find_params_id
 
-    # 更新時チェック
+    # 更新時チェック(nバリデーションチェック)
     if @type.update(type_params)
 
       # 成功時処理
