@@ -102,6 +102,7 @@ class Admin::TypesController < ApplicationController
   # ストロングパラメータ(Web上から受けつけたパラメータが、本当に安全なデータかどうかを検証した上で、取得するための仕組み)
   def type_params
 
+    # typeモデルのカラム
     params.require(:type).permit(:image,:name,:body_length,:country,:tag_list,:detail)
 
   end
