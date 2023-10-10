@@ -68,7 +68,7 @@ class Public::CommentsController < ApplicationController
 
   end
 
-  # ストロングパラメータ
+  # ストロングパラメータ(Web上から受けつけたパラメータが、本当に安全なデータかどうかを検証した上で、取得するための仕組み)
   def comment_params
 
     # commentモデルのカラム
