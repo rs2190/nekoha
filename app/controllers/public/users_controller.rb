@@ -90,7 +90,8 @@ class Public::UsersController < ApplicationController
 
   # ストロングパラメータ
   def user_params
-
+    
+    # userタイプのモデル
     params.require(:user).permit(:name,:sex,:email,:self_introduction,:image)
 
   end
