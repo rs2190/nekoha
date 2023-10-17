@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
 
+  # コントローラーに設定して、ログイン済ユーザーのみにアクセスを許可する
   before_action :authenticate_user!, only: [:edit ,:update, :unsubscribe, :goodbye ,:my_page]
 
   # マイページ
@@ -90,7 +91,7 @@ class Public::UsersController < ApplicationController
 
   # ストロングパラメータ
   def user_params
-    
+
     # userタイプのモデル
     params.require(:user).permit(:name,:sex,:email,:self_introduction,:image)
 
