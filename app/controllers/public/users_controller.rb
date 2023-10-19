@@ -28,7 +28,8 @@ class Public::UsersController < ApplicationController
   def update
 
     @user = user_find
-
+    
+    # バリデーションチェック
     if @user.update(user_params)
 
       notice("プロフィールを更新しました。")
@@ -50,6 +51,8 @@ class Public::UsersController < ApplicationController
   def goodbye
 
     @user = user_find
+    
+    # 退会ステータスを有効
     @user.update(is_deleted: true)
     # ログアウト
     reset_session
